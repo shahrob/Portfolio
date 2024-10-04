@@ -6,18 +6,11 @@ import {
   DiReact,
   DiNodejs,
   DiMongodb,
-  DiPython,
+  DiMysql,
   DiGit,
   DiJava,
-  DiRedis,
 } from "react-icons/di";
-import {
-  SiRedis,
-  SiFirebase,
-  SiNextdotjs,
-  SiSolidity,
-  SiPostgresql,
-} from "react-icons/si";
+import { SiRedis, SiFirebase, SiPostgresql, SiRedux } from "react-icons/si";
 import { TbBrandTypescript } from "react-icons/tb";
 import { TiVendorAndroid } from "react-icons/ti";
 import { FaApple } from "react-icons/fa";
@@ -59,10 +52,10 @@ function Techstack() {
         <SiRedis />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiPostgresql />
+        <SiRedux />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <DiPython />
+        <DiMysql />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <DiJava />
