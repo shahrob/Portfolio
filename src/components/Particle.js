@@ -6,47 +6,82 @@ function Particle() {
     <Particles
       id="tsparticles"
       params={{
+        background: {
+          color: {
+            value: "transparent",
+          },
+        },
+        fpsLimit: 120,
+        interactivity: {
+          events: {
+            onClick: {
+              enable: true,
+              mode: "push",
+            },
+            onHover: {
+              enable: true,
+              mode: "repulse",
+            },
+            resize: true,
+          },
+          modes: {
+            push: {
+              quantity: 2,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+          },
+        },
         particles: {
+          color: {
+            value: "#c770f0",
+          },
+          links: {
+            color: "#c770f0",
+            distance: 150,
+            enable: false,
+            opacity: 0.3,
+            width: 1,
+          },
+          move: {
+            direction: "none",
+            enable: true,
+            outMode: "bounce",
+            random: false,
+            speed: 0.5,
+            straight: false,
+          },
           number: {
-            value: 160,
             density: {
               enable: true,
               value_area: 1500,
             },
-          },
-          line_linked: {
-            enable: false,
-            opacity: 0.03,
-          },
-          move: {
-            direction: "right",
-            speed: 0.05,
-          },
-          size: {
-            value: 1,
+            value: 100,
           },
           opacity: {
+            value: 0.5,
             anim: {
               enable: true,
               speed: 1,
-              opacity_min: 0.05,
+              opacity_min: 0.1,
             },
           },
-        },
-        interactivity: {
-          events: {
-            onclick: {
+          shape: {
+            type: "circle",
+          },
+          size: {
+            value: 2,
+            random: true,
+            anim: {
               enable: true,
-              mode: "push",
-            },
-          },
-          modes: {
-            push: {
-              particles_nb: 1,
+              speed: 2,
+              size_min: 0.5,
             },
           },
         },
-        retina_detect: true,
+        detectRetina: true,
       }}
     />
   );
