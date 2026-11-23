@@ -39,16 +39,16 @@ function App() {
   return (
     <ErrorBoundary>
       <Helmet>
-        <title>Muhammad Shahrob Abbas | Full Stack Developer</title>
-        <meta name="description" content="Full Stack Developer specializing in React, Node.js, React Native, and modern web technologies. Building scalable applications and digital solutions." />
-        <meta name="keywords" content="Full Stack Developer, React Developer, Node.js, React Native, JavaScript, TypeScript, Web Development, Mobile App Development" />
+        <title>Muhammad Shahrob Abbas | Senior Full Stack Developer</title>
+        <meta name="description" content="Senior Full Stack Developer (6+ years) building React Native mobile apps, Next.js web apps, Node.js/NestJS backends and AI features (LLMs, RAG, vector search)." />
+        <meta name="keywords" content="Senior Full Stack Developer, React Native, Next.js, React, Node.js, NestJS, TypeScript, AI, LLM, RAG, SaaS, Web Development, Mobile App Development" />
         <meta name="author" content="Muhammad Shahrob Abbas" />
-        <meta property="og:title" content="Muhammad Shahrob Abbas | Full Stack Developer" />
-        <meta property="og:description" content="Full Stack Developer specializing in React, Node.js, React Native, and modern web technologies." />
+        <meta property="og:title" content="Muhammad Shahrob Abbas | Senior Full Stack Developer" />
+        <meta property="og:description" content="Senior Full Stack Developer | AI SaaS, Web & Mobile Apps | React, React Native, Node.js & NestJS" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Muhammad Shahrob Abbas | Full Stack Developer" />
-        <meta name="twitter:description" content="Full Stack Developer specializing in React, Node.js, React Native, and modern web technologies." />
+        <meta name="twitter:title" content="Muhammad Shahrob Abbas | Senior Full Stack Developer" />
+        <meta name="twitter:description" content="Senior Full Stack Developer | AI SaaS, Web & Mobile Apps | React, React Native, Node.js & NestJS" />
         <link rel="canonical" href="https://shahrobabbas.com" />
       </Helmet>
       

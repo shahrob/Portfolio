@@ -3,130 +3,101 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Particle from "../Particle";
 import AnimatedSection from "../AnimatedSection";
-import { 
-  FaReact, 
-  FaMobile, 
-  FaServer, 
-  FaCloud, 
-  FaDatabase, 
-  FaPaintBrush,
+import {
+  FaMobile,
+  FaServer,
+  FaCloud,
+  FaDatabase,
   FaCode,
-  FaTools
+  FaRobot
 } from "react-icons/fa";
 
 function Services() {
+  // Mirrors the "Core Services" list on the Upwork profile.
   const services = [
     {
-      icon: FaReact,
-      title: "Frontend Development",
-      description: "Building modern, responsive, and interactive user interfaces using React.js, Next.js, and latest frontend technologies.",
+      icon: FaCode,
+      title: "Full Stack & SaaS Development",
+      description: "Web apps, SaaS platforms, dashboards and portals with React.js, Next.js, Node.js, NestJS and TypeScript.",
       features: [
-        "React.js & Next.js Applications",
-        "Responsive Web Design",
-        "Progressive Web Apps (PWA)",
-        "Single Page Applications (SPA)",
-        "UI/UX Implementation",
-        "Performance Optimization"
+        "SaaS Products & Startup MVPs",
+        "Multi-Tenant Platforms",
+        "Dashboards & Admin Panels",
+        "B2B Marketplaces & E-Commerce",
+        "CRM Systems & Business Automation",
+        "Payment & Subscription Integrations"
       ],
-      color: "#61dafb"
+      color: "#c770f0"
     },
     {
       icon: FaMobile,
       title: "Mobile App Development",
-      description: "Cross-platform mobile applications using React Native for iOS and Android with native performance.",
+      description: "iOS and Android apps with React Native: authentication, API integration, push notifications, WebRTC calling and maintainable architecture.",
       features: [
-        "React Native Development",
-        "iOS & Android Apps",
-        "Cross-Platform Solutions",
-        "App Store Deployment",
+        "Cross-Platform iOS & Android Apps",
+        "Authentication & API Integration",
         "Push Notifications",
-        "Offline Functionality"
+        "WebRTC Video/Voice Calling",
+        "In-App Purchases",
+        "App Store & Google Play Releases"
       ],
       color: "#61dafb"
     },
     {
-      icon: FaServer,
-      title: "Backend Development",
-      description: "Scalable server-side applications and APIs using Node.js, NestJS, and modern backend technologies.",
+      icon: FaRobot,
+      title: "AI Applications & Automation",
+      description: "AI agents, LLM integrations, RAG pipelines, embeddings, vector search and automated workflows.",
       features: [
-        "RESTful API Development",
-        "GraphQL Implementation",
-        "Node.js & NestJS",
+        "AI Agents & Chatbots",
+        "LLM Integrations (OpenAI and other providers)",
+        "RAG Pipelines",
+        "Embeddings & Vector Search (pgvector)",
+        "AI-Powered Image Search",
+        "Workflow Automation"
+      ],
+      color: "#10a37f"
+    },
+    {
+      icon: FaServer,
+      title: "Backend & API Engineering",
+      description: "Secure REST APIs, auth, RBAC, microservices and scalable architecture with Node.js, NestJS and Express.js.",
+      features: [
+        "REST APIs & Webhooks",
+        "Authentication, JWT & OAuth",
+        "Role-Based Access Control",
         "Microservices Architecture",
-        "Authentication & Authorization",
-        "Real-time Applications"
+        "Real-Time Chat, Messaging & Notifications",
+        "Stripe, Open Banking & Third-Party Integrations"
       ],
       color: "#339933"
     },
     {
       icon: FaDatabase,
-      title: "Database Design",
-      description: "Designing and optimizing databases for performance, scalability, and data integrity.",
+      title: "Database Design & Performance",
+      description: "PostgreSQL (pgvector), MongoDB, Redis, data modeling, query optimization, caching and background jobs.",
       features: [
-        "Database Architecture",
-        "MongoDB & PostgreSQL",
         "Data Modeling",
+        "PostgreSQL & pgvector",
+        "MongoDB & Mongoose",
+        "Redis Caching",
         "Query Optimization",
-        "Migration Strategies",
-        "Backup & Recovery"
+        "Background Jobs"
       ],
       color: "#47a248"
     },
     {
       icon: FaCloud,
-      title: "Cloud & DevOps",
-      description: "Cloud infrastructure setup, deployment automation, and DevOps practices for scalable applications.",
+      title: "Deployment & DevOps",
+      description: "AWS (EC2, S3), Docker, CI/CD, Nginx, Linux, Git workflows and production deployment.",
       features: [
-        "AWS Cloud Services",
-        "Docker Containerization",
+        "AWS EC2 & S3",
+        "Docker",
         "CI/CD Pipelines",
-        "Infrastructure as Code",
-        "Monitoring & Logging",
-        "Performance Optimization"
+        "Nginx & Linux",
+        "Git Workflows",
+        "Production Deployment"
       ],
       color: "#ff9900"
-    },
-    {
-      icon: FaCode,
-      title: "Full Stack Solutions",
-      description: "End-to-end web applications combining frontend, backend, and database technologies.",
-      features: [
-        "Complete Web Applications",
-        "E-commerce Solutions",
-        "Content Management Systems",
-        "Dashboard & Analytics",
-        "Third-party Integrations",
-        "Custom Business Solutions"
-      ],
-      color: "#c770f0"
-    },
-    // {
-    //   icon: FaPaintBrush,
-    //   title: "UI/UX Consultation",
-    //   description: "User experience optimization and interface design consultation for better user engagement.",
-    //   features: [
-    //     "User Experience Audit",
-    //     "Interface Design Review",
-    //     "Usability Testing",
-    //     "Design System Creation",
-    //     "Accessibility Compliance",
-    //     "Performance Analysis"
-    //   ],
-    //   color: "#f24e1e"
-    // },
-    {
-      icon: FaTools,
-      title: "Technical Consultation",
-      description: "Technical advisory services for architecture decisions, technology stack selection, and best practices.",
-      features: [
-        "Technology Stack Selection",
-        "Architecture Planning",
-        "Code Review & Audit",
-        "Performance Optimization",
-        "Team Training",
-        "Best Practices Implementation"
-      ],
-      color: "#0052cc"
     }
   ];
 
@@ -164,7 +135,7 @@ function Services() {
                 Services <strong className="purple">I Offer</strong>
               </h1>
               <p style={{ color: "white", textAlign: "center", fontSize: "1.1em" }}>
-                Comprehensive development services to bring your ideas to life
+                Web, mobile, backend and AI development, from architecture to deployment
               </p>
             </Col>
           </Row>

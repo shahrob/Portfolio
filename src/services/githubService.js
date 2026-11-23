@@ -147,12 +147,15 @@ export class GitHubService {
       const { techStack, description, name, stars, forks } = project;
       const content = `${name} ${description}`.toLowerCase();
       
-      // Featured projects (high engagement)
-      if (stars > 3 || forks > 1 || project.hasDemo) {
+      // Featured projects (client work, or high engagement on GitHub)
+      if (project.isGitHubProject === false || stars > 3 || forks > 1 || project.hasDemo) {
         categories['Featured'].push(project);
       }
-      
-      if (techStack?.includes('React Native') || content.includes('mobile') || content.includes('app')) {
+
+      // Curated projects carry an explicit category
+      if (project.category && categories[project.category]) {
+        categories[project.category].push(project);
+      } else if (techStack?.includes('React Native') || content.includes('mobile') || content.includes('app')) {
         categories['Mobile Apps'].push(project);
       } else if (techStack?.includes('React') && (techStack?.includes('Node.js') || techStack?.includes('MongoDB'))) {
         categories['Full Stack'].push(project);

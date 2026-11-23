@@ -10,6 +10,7 @@ import {
   AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { SiUpwork } from "react-icons/si";
 
 function Home2() {
   const quickLinks = [
@@ -39,38 +40,48 @@ function Home2() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              I fell in love with programming and I have at least learnt
-              something, I think… 🤷‍♂️
+              I'm a{" "}
+              <b className="purple">Senior Full Stack Developer</b> with 6+
+              years of experience building production web apps, mobile apps,
+              SaaS platforms, backend systems and AI-powered solutions.
               <br />
-              <br />I am fluent in classics like
+              <br />
+              I work with
               <i>
                 <b className="purple">
                   {" "}
-                  C++, Java, Javascript and TypeScript .{" "}
+                  React, Next.js and React Native{" "}
                 </b>
               </i>
-              <br />
-              <br />
-              My field of Interest's are building new &nbsp;
-              <i>
-                <b className="purple">Web || App Technologies and Products </b>{" "}
-                and also in areas related to{" "}
-                <b className="purple">Backend Services.</b>
-              </i>
-              <br />
-              <br />
-              Whenever possible, I also apply my passion for developing products
-              with <b className="purple">Node.js, NestJS</b> and
+              on the web and mobile side, and
               <i>
                 <b className="purple">
                   {" "}
-                  Modern Javascript Library and Frameworks
+                  Node.js, NestJS, PostgreSQL, MongoDB and Redis{" "}
                 </b>
               </i>
-              &nbsp; like
+              on the backend.
+              <br />
+              <br />
+              Recent work includes
               <i>
-                <b className="purple"> React Native.js and React.js</b>
+                <b className="purple">
+                  {" "}
+                  FinTech and open banking integrations{" "}
+                </b>
               </i>
+              (Stripe, Yapily, HMRC Making Tax Digital),
+              <i>
+                <b className="purple"> AI image search </b>
+              </i>
+              with LLMs, embeddings and pgvector, and
+              <i>
+                <b className="purple"> real-time WebRTC calling.</b>
+              </i>
+              <br />
+              <br />
+              I help startups and businesses turn ideas into reliable products,
+              from architecture and APIs to deployment.
             </motion.p>
 
             {/* Quick Navigation Links */}
@@ -189,6 +200,18 @@ function Home2() {
                   whileTap={{ scale: 0.9 }}
                 >
                   <FaLinkedinIn />
+                </motion.a>
+              </li>
+              <li className="social-icons">
+                <motion.a
+                  href="https://www.upwork.com/freelancers/~01589f1d414475058b"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-colour  home-social-icons"
+                  whileHover={{ scale: 1.1, rotate: -5 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <SiUpwork />
                 </motion.a>
               </li>
               <li className="social-icons">

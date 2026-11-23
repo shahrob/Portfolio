@@ -12,6 +12,7 @@ import {
   FaTwitter,
   FaPaperPlane
 } from "react-icons/fa";
+import { SiUpwork } from "react-icons/si";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -95,6 +96,12 @@ function Contact() {
       color: "#0077b5"
     },
     {
+      icon: SiUpwork,
+      title: "Upwork",
+      url: "https://www.upwork.com/freelancers/~01589f1d414475058b",
+      color: "#14a800"
+    },
+    {
       icon: FaGithub,
       title: "GitHub",
       url: "https://github.com/shahrob",
@@ -109,12 +116,12 @@ function Contact() {
   ];
 
   const projectTypes = [
-    "Web Application",
+    "Full Stack / SaaS Web App",
     "Mobile App (React Native)",
-    "Backend API",
-    "Full Stack Solution",
-    "UI/UX Design",
-    "Technical Consultation",
+    "AI / LLM Integration",
+    "Backend & API",
+    "Database Design & Performance",
+    "Deployment & DevOps",
     "Other"
   ];
 

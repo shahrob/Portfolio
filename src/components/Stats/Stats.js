@@ -3,97 +3,67 @@ import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Particle from "../Particle";
 import AnimatedSection from "../AnimatedSection";
-import { 
-  FaProjectDiagram, 
-  FaUsers, 
-  FaCode, 
-  FaTrophy,
-  FaCoffee,
+import { Link } from "react-router-dom";
+import {
+  FaProjectDiagram,
+  FaUsers,
   FaCalendarAlt,
-  FaGithub,
-  FaStar
+  FaMobileAlt
 } from "react-icons/fa";
 
 function Stats() {
+  // Every number here can be checked against my LinkedIn and Upwork profiles.
   const stats = [
     {
-      icon: FaProjectDiagram,
-      number: "50+",
-      label: "Projects Completed",
-      description: "Successfully delivered projects across various industries",
-      color: "#c770f0"
-    },
-    {
-      icon: FaUsers,
-      number: "30+",
-      label: "Happy Clients",
-      description: "Satisfied clients from startups to enterprise companies",
-      color: "#61dafb"
-    },
-    {
-      icon: FaCode,
-      number: "100K+",
-      label: "Lines of Code",
-      description: "Clean, efficient, and maintainable code written",
-      color: "#339933"
-    },
-    {
       icon: FaCalendarAlt,
-      number: "5+",
+      number: "6+",
       label: "Years Experience",
-      description: "Professional development experience in the industry",
+      description: "Building web, mobile and backend products professionally since 2020",
       color: "#ff9900"
     },
     {
-      icon: FaGithub,
-      number: "200+",
-      label: "GitHub Commits",
-      description: "Active contributions to open source projects",
-      color: "#333"
+      icon: FaProjectDiagram,
+      number: "14",
+      label: "Featured Projects",
+      description: "FinTech, SaaS, marketplace, e-commerce and mobile products",
+      color: "#c770f0"
     },
     {
-      icon: FaTrophy,
-      number: "15+",
-      label: "Awards & Recognition",
-      description: "Industry recognition and client appreciation",
-      color: "#ffd700"
+      icon: FaMobileAlt,
+      number: "3",
+      label: "Store-Published Apps",
+      description: "CalmVibe, SoulCalm and Postit on the App Store and Google Play",
+      color: "#61dafb"
     },
     {
-      icon: FaCoffee,
-      number: "1000+",
-      label: "Cups of Coffee",
-      description: "Fuel for those late-night coding sessions",
-      color: "#8b4513"
-    },
-    {
-      icon: FaStar,
-      number: "4.9/5",
-      label: "Client Rating",
-      description: "Average rating from client feedback",
+      icon: FaUsers,
+      number: "5",
+      label: "Recommendations",
+      description: "3 LinkedIn recommendations and 2 verified Upwork testimonials",
       color: "#ffd700"
     }
   ];
 
   const achievements = [
     {
-      title: "Top Rated Freelancer",
-      description: "Achieved top-rated status on multiple freelancing platforms",
-      year: "2023"
+      title: "Started as an Android Developer",
+      description: "Began my career building Android apps with Java at Dynamic Logix",
+      year: "2020"
     },
     {
-      title: "Best Mobile App Award",
-      description: "Won best mobile app award for SoulCalm meditation app",
-      year: "2022"
+      title: "Application Developer (React Native)",
+      description: "Built and shipped React Native apps to Google Play and the App Store at Dynamic Logix",
+      year: "2020 - 2022"
     },
     {
-      title: "Employee of the Year",
-      description: "Recognized as Employee of the Year at Meta Logix Tech",
+      title: "Bachelor's in Computer Science",
+      description: "Graduated from the University of Sahiwal",
       year: "2021"
     },
     {
-      title: "Open Source Contributor",
-      description: "Active contributor to React and Node.js open source projects",
-      year: "2020-Present"
+      title: "Senior Full Stack Developer",
+      description: "Joined Meta Logix Tech to build FinTech, SaaS, marketplace and e-commerce products",
+      year: "2022 - Present"
     }
   ];
 
@@ -143,7 +113,7 @@ function Stats() {
                 My <strong className="purple">Achievements</strong>
               </h1>
               <p style={{ color: "white", textAlign: "center", fontSize: "1.1em" }}>
-                Numbers that showcase my journey and dedication to excellence
+                My journey so far, in numbers you can verify on LinkedIn and Upwork
               </p>
             </Col>
           </Row>
@@ -223,20 +193,21 @@ function Stats() {
             <Col>
               <div className="stats-cta">
                 <h3 style={{ color: "white", textAlign: "center", marginBottom: "20px" }}>
-                  Ready to be part of these numbers?
+                  Have a project in mind?
                 </h3>
                 <p style={{ color: "#a588c0", textAlign: "center", fontSize: "1.1em" }}>
-                  Let's work together to create something amazing and add your project to my success stories.
+                  Have a SaaS idea or need a web, mobile or AI solution? Let's discuss your requirements.
                 </p>
                 <div style={{ textAlign: "center", marginTop: "30px" }}>
-                  <motion.a
-                    href="#contact"
-                    className="cta-button"
+                  <motion.div
+                    style={{ display: "inline-block" }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Start Your Project
-                  </motion.a>
+                    <Link to="/contact" className="cta-button">
+                      Start Your Project
+                    </Link>
+                  </motion.div>
                 </div>
               </div>
             </Col>

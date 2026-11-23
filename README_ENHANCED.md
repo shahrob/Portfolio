@@ -34,10 +34,8 @@ Visit my portfolio: [shahrobabbas.com](https://shahrobabbas.com)
 - Clear value propositions for potential clients
 
 #### 4. **Client Testimonials** (`/testimonials`)
-- Real client feedback and reviews
-- Star ratings and project details
-- Professional client photos and company information
-- Varied project types and success stories
+- Links to the recommendations on my LinkedIn profile
+- Links to the verified client testimonials on my Upwork profile
 
 #### 5. **Contact Form** (`/contact`)
 - Interactive contact form with validation
@@ -46,9 +44,8 @@ Visit my portfolio: [shahrobabbas.com](https://shahrobabbas.com)
 - Project type selection and professional inquiry handling
 
 #### 6. **Stats & Achievements** (`/stats`)
-- Key performance metrics and numbers
-- Achievement timeline with milestones
-- Visual representation of success metrics
+- Key numbers that match my LinkedIn and Upwork profiles
+- Career timeline with milestones
 - Call-to-action for potential collaborations
 
 ### 🛠 **Technical Improvements**
@@ -158,8 +155,9 @@ npm run build
 
 ## 📧 **Contact Information**
 
-- **Email**: shahrob.abbas@example.com
+- **Email**: shahrobk@gmail.com
 - **LinkedIn**: [linkedin.com/in/shahrob-abbas](https://linkedin.com/in/shahrob-abbas/)
+- **Upwork**: [upwork.com/freelancers/~01589f1d414475058b](https://www.upwork.com/freelancers/~01589f1d414475058b)
 - **GitHub**: [github.com/shahrob](https://github.com/shahrob)
 - **Twitter**: [twitter.com/shahrob_abbas](https://twitter.com/shahrob_abbas)
 

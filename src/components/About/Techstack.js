@@ -19,9 +19,9 @@ import {
   SiRedux, 
   SiNestjs,
   SiExpress,
-  SiGraphql,
+  SiNextdotjs,
   SiAmazonaws,
-  SiKubernetes
+  SiOpenai
 } from "react-icons/si";
 import { TbBrandTypescript, TbBrandReactNative } from "react-icons/tb";
 import { FaApple } from "react-icons/fa";
@@ -35,9 +35,9 @@ function Techstack() {
     { icon: SiNestjs, name: "NestJS" },
     { icon: SiExpress, name: "Express.js" },
     { icon: DiReact, name: "React" },
+    { icon: SiNextdotjs, name: "Next.js" },
     { icon: TbBrandReactNative, name: "React Native" },
     { icon: SiRedux, name: "Redux" },
-    { icon: SiGraphql, name: "GraphQL" },
     { icon: DiMongodb, name: "MongoDB" },
     { icon: DiMysql, name: "MySQL" },
     { icon: SiPostgresql, name: "PostgreSQL" },
@@ -45,8 +45,8 @@ function Techstack() {
     { icon: SiFirebase, name: "Firebase" },
     { icon: DiGit, name: "Git" },
     { icon: DiDocker, name: "Docker" },
-    { icon: SiKubernetes, name: "Kubernetes" },
     { icon: SiAmazonaws, name: "AWS" },
+    { icon: SiOpenai, name: "OpenAI / LLMs" },
     { icon: DiJava, name: "Java" },
     { icon: FaApple, name: "iOS" }
   ];

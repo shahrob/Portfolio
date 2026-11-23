@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";
 import { motion } from "framer-motion";
 import { BsGithub } from "react-icons/bs";
-import { FaExternalLinkAlt, FaStar, FaCodeBranch, FaCode, FaCalendarAlt, FaImage } from "react-icons/fa";
+import { FaExternalLinkAlt, FaStar, FaCodeBranch, FaCode, FaCalendarAlt, FaGooglePlay, FaApple } from "react-icons/fa";
 
 function ProjectCards({
   title,
@@ -20,7 +20,9 @@ function ProjectCards({
   imgPath,
   isBlog = false,
   ghLink,
-  demoLink
+  demoLink,
+  role,
+  links = []
 }) {
   
   const formatDate = (date) => {
@@ -61,6 +63,12 @@ function ProjectCards({
   // Use the appropriate links based on the project type
   const repoLink = githubUrl || ghLink;
   const liveLink = demoUrl || demoLink;
+
+  const getLinkIcon = (label) => {
+    if (label === "Google Play") return FaGooglePlay;
+    if (label === "App Store") return FaApple;
+    return FaExternalLinkAlt;
+  };
 
   return (
     <motion.div
@@ -110,6 +118,12 @@ function ProjectCards({
           {/* Project Header */}
           <div className="project-header mb-3">
             <Card.Title className="project-title">{title}</Card.Title>
+
+            {role && (
+              <div className="project-meta mb-2">
+                <span className="stat-item">Role: {role}</span>
+              </div>
+            )}
             
             {isGitHubProject && (
               <div className="project-meta mb-2">
@@ -179,7 +193,25 @@ function ProjectCards({
 
           {/* Action Buttons */}
           <div className="project-buttons mt-auto">
-            <div className="d-flex gap-2 justify-content-center">
+            <div className="d-flex gap-2 justify-content-center flex-wrap">
+              {links.map((link) => {
+                const LinkIcon = getLinkIcon(link.label);
+                return (
+                  <motion.div key={link.url} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Button
+                      variant="success"
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="project-btn"
+                    >
+                      <LinkIcon className="btn-icon" />
+                      {link.label}
+                    </Button>
+                  </motion.div>
+                );
+              })}
+
               {repoLink && (
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button 

@@ -6,142 +6,71 @@ import AnimatedSection from "../AnimatedSection";
 import { BsBriefcase, BsCalendar, BsGeoAlt } from "react-icons/bs";
 
 function Experience() {
+  // Kept in sync with the Experience section on LinkedIn and the
+  // Employment history section on Upwork.
   const experiences = [
     {
       id: 1,
       title: "Senior Full Stack Developer",
       company: "Meta Logix Tech",
-      location: "Pakistan",
-      period: "October 2020 - Present",
+      location: "Sahiwal, Pakistan",
+      period: "October 2022 - Present",
       type: "Full-time",
-      description: [
-        "Lead development of scalable web and mobile applications using React, React Native, and Node.js",
-        "Architect and implement microservices-based backend systems with NestJS and Express.js",
-        "Manage cloud infrastructure on AWS and implement CI/CD pipelines",
-        "Mentor junior developers and conduct code reviews",
-        "Collaborate with cross-functional teams to deliver high-quality products"
-      ],
-      technologies: ["React", "React Native", "Node.js", "NestJS", "MongoDB", "AWS", "Docker","Android","IOS","Fast Api","Pandas","Numpanda"],
+      summary:
+        "Senior Full Stack Developer building FinTech, SaaS, marketplace and e-commerce products.",
       achievements: [
-        "Increased application performance by 40% through optimization",
-        "Led team of 5 developers on major client projects",
-        "Implemented automated testing reducing bugs by 60%"
+        "Built Node.js/NestJS microservices and REST APIs with PostgreSQL, MongoDB and Redis",
+        "Built React, Next.js and React Native apps for web, iOS and Android",
+        "Integrated Stripe subscriptions, Yapily open banking and HMRC (Making Tax Digital) APIs",
+        "Built an AI image search: LLM image descriptions, embeddings and pgvector similarity search",
+        "Fixed cross-country WebRTC audio/video calling with TURN server setup",
+        "Built a financial market data platform using S&P Global APIs",
+        "Deployed and maintained apps on AWS (EC2, S3) with Docker and CI/CD"
+      ],
+      technologies: [
+        "Node.js",
+        "NestJS",
+        "React",
+        "Next.js",
+        "React Native",
+        "TypeScript",
+        "PostgreSQL",
+        "pgvector",
+        "MongoDB",
+        "Redis",
+        "Stripe",
+        "Yapily Open Banking",
+        "WebRTC",
+        "AWS (EC2, S3)",
+        "Docker",
+        "CI/CD"
       ]
     },
     {
-  id: 2,
-  title: "Node.js Backend Developer",
-  company: "Dynamin Logix , Meta Logix Tech",
-  location: "Sahiwal",
-  period: "January 2023 - October 2023",
-  type: "Full-time",
-  description: [
-    "Developed and maintained scalable backend services using Node.js and Express.js",
-    "Designed and implemented RESTful APIs and integrated third-party services",
-    "Worked on database schema design, optimization, and queries with MongoDB and PostgreSQL",
-    "Implemented real-time communication features using Socket.io",
-    "Ensured security best practices including authentication, authorization, and data validation",
-    "Collaborated with frontend developers to deliver complete end-to-end solutions"
-  ],
-  technologies: [
-    "Node.js",
-    "Nest.js",
-    "Express.js",
-    "MongoDB",
-    "PostgreSQL",
-    "Socket.io",
-    "JWT",
-    "Redis",
-    "Docker",
-    "Git"
-  ],
-  achievements: [
-    "Delivered 2+ backend services and APIs successfully within deadlines",
-    "Optimized database queries and API endpoints, reducing response time by 35%",
-    "Implemented a scalable real-time chat system supporting 10k+ concurrent users",
-    "Improved system reliability by setting up caching and session management with Redis"
-  ]
-},
-    {
-  id: 3,
-  title: "Associate Mobile Developer",
-  company: "Dynamic Logix",
-  location: "Sahiwal, Pakistan",
-  period: "December 2021 - January 2023",
-  type: "Full Time",
-  description: [
-    "Developed and maintained cross-platform mobile applications using React Native",
-    "Implemented reusable components and responsive UI for iOS and Android",
-    "Integrated RESTful APIs, WebSockets, and third-party libraries for real-time features",
-    "Added in-app purchase functionality and payment gateways for monetization",
-    "Implemented location-based features and interactive maps",
-    "Utilized Redux for scalable state management across complex workflows",
-    "Collaborated with designers and backend developers to deliver production-ready solutions"
-  ],
-  technologies: [
-    "React Native",
-    "Redux",
-    "JavaScript",
-    "TypeScript",
-    "Expo/CLI",
-    "REST APIs",
-    "WebSockets",
-    "In-App Purchases",
-    "Google Maps SDK",
-    "Firebase",
-    "Git"
-  ],
-  achievements: [
-    "Delivered 4 client mobile applications successfully from development to deployment",
-    "Integrated real-time features using sockets, improving app interactivity",
-    "Implemented in-app purchases and payment integrations to drive revenue",
-    "Enhanced user engagement and retention with map-based and location-aware features",
-    "Optimized app performance across iOS and Android, reducing crashes and load times"
-  ]
-},
-    {
-  id: 4,
-  title: "Junior React Native Developer",
-  company: "Dynamic Logix",
-  location: "Sahiwal, Pakistan",
-  period: "December 2020 - December 2021",
-  type: "Full Time",
-  description: [
-    "Developed cross-platform mobile applications using React Native",
-    "Implemented reusable components and responsive UI for iOS and Android",
-    "Integrated RESTful APIs and third-party libraries for enhanced functionality",
-    "Worked with Redux for state management across complex app flows",
-    "Collaborated with designers and backend developers to deliver complete solutions"
-  ],
-  technologies: ["React Native", "Redux", "JavaScript", "CLI", "REST APIs", "Git"],
-  achievements: [
-    "Delivered 4 client mobile apps successfully within deadlines",
-    "Enhanced app performance and reduced load times across devices",
-    "Improved user engagement through UI/UX improvements"
-  ]
-},
-    {
-     
-  id: 5,
-  title: "Android Developer Intern",
-  company: "Dynamic Logix",
-  location: "Pakistan",
-  period: "October 2020 - December 2020",
-  type: "Internship",
-  description: [
-    "Assisted in designing and developing Android applications using Java and XML",
-    "Worked on UI implementation, layouts, and responsive design for different screen sizes",
-    "Integrated RESTful APIs to fetch and display data in mobile apps",
-    "Collaborated with senior developers in debugging and testing Android applications",
-    "Participated in code reviews and learned modern mobile development practices"
-  ],
-  technologies: ["Java", "Android Studio", "XML", "SQLite", "REST APIs", "Git"],
-  achievements: [
-    "Contributed to 2 Android applications from development to testing phase",
-    "Gained strong foundation in Android app lifecycle and architecture",
-    "Recognized for quickly adapting to new tools and technologies during internship"
-  ]
-}
+      id: 2,
+      title: "Application Developer (React Native)",
+      company: "Dynamic Logix",
+      location: "Sahiwal, Pakistan",
+      period: "October 2020 - October 2022",
+      type: "Full-time",
+      summary: "React Native mobile app developer for iOS and Android.",
+      achievements: [
+        "Built and shipped React Native apps to Google Play and the App Store",
+        "Built reusable, scalable UI components and integrated REST APIs",
+        "Implemented Firebase, push notifications, authentication and payment gateways",
+        "Optimized app performance and managed iOS and Android production releases",
+        "Started as an Android developer (Java) before moving to React Native"
+      ],
+      technologies: [
+        "React Native",
+        "JavaScript",
+        "Redux",
+        "Firebase",
+        "Push Notifications",
+        "REST APIs",
+        "Android (Java)"
+      ]
+    }
   ];
 
   const containerVariants = {
@@ -178,7 +107,7 @@ function Experience() {
                 Professional <strong className="purple">Experience</strong>
               </h1>
               <p style={{ color: "white", textAlign: "center", fontSize: "1.1em" }}>
-                My journey as a Full Stack Developer - building amazing products and solutions
+                6+ years building web, mobile, SaaS and AI-powered products
               </p>
             </Col>
           </Row>
@@ -217,11 +146,15 @@ function Experience() {
                           </div>
                         </div>
 
-                        <div className="experience-description">
-                          <h6 style={{ color: "#c770f0", marginTop: "15px" }}>Key Responsibilities:</h6>
+                        <p style={{ color: "white", marginTop: "15px", marginBottom: 0 }}>
+                          {exp.summary}
+                        </p>
+
+                        <div className="experience-achievements">
+                          <h6 style={{ color: "#c770f0", marginTop: "15px" }}>Key Achievements:</h6>
                           <ul>
-                            {exp.description.map((desc, i) => (
-                              <li key={i} style={{ color: "white", marginBottom: "5px" }}>{desc}</li>
+                            {exp.achievements.map((achievement, i) => (
+                              <li key={i} style={{ color: "white", marginBottom: "5px" }}>{achievement}</li>
                             ))}
                           </ul>
                         </div>
@@ -235,14 +168,6 @@ function Experience() {
                           </div>
                         </div>
 
-                        <div className="experience-achievements">
-                          <h6 style={{ color: "#c770f0", marginTop: "15px" }}>Key Achievements:</h6>
-                          <ul>
-                            {exp.achievements.map((achievement, i) => (
-                              <li key={i} style={{ color: "#a588c0", marginBottom: "5px" }}>{achievement}</li>
-                            ))}
-                          </ul>
-                        </div>
                       </Card.Body>
                     </Card>
                   </motion.div>

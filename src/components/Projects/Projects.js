@@ -13,12 +13,6 @@ import {
   FaCalendarAlt,
   FaExternalLinkAlt
 } from "react-icons/fa";
-import leaf from "../../Assets/Projects/leaf.png";
-import emotion from "../../Assets/Projects/emotion.png";
-import editor from "../../Assets/Projects/codeEditor.png";
-import chatify from "../../Assets/Projects/chatify.png";
-import suicide from "../../Assets/Projects/suicide.png";
-import bitsOfCode from "../../Assets/Projects/blog.png";
 
 function Projects() {
   const [projects, setProjects] = useState([]);
@@ -31,81 +25,147 @@ function Projects() {
   const [selectedTech, setSelectedTech] = useState('All');
   const [sortBy, setSortBy] = useState('updated');
 
-  // Your existing projects as fallbacks
-  const fallbackProjects = [
+  // Client and product work, kept in sync with the Projects section on
+  // LinkedIn. These are shown first; public GitHub repositories follow.
+  const featuredProjects = [
     {
-      imgPath: chatify,
-      title: "SoulCalm - Meditation App",
-      description: "A comprehensive meditation and mindfulness app built with React Native. Features guided meditations, progress tracking, customizable ambient sounds, and cross-platform synchronization.",
-      ghLink: "https://github.com/shahrob/soulcalm",
-      demoLink: "https://play.google.com/store/apps/details?id=com.soulcalm",
-      techStack: ["React Native", "Node.js", "MongoDB", "Firebase"],
-      stars: 0,
-      forks: 0,
-      isGitHubProject: false,
-      isBlog: false
+      title: "MMAREKANI - B2B Marketplace, AI Image Search & WebRTC",
+      role: "Backend Developer",
+      category: "Backend/APIs",
+      description:
+        "B2B marketplace connecting buyers and suppliers directly. Restructured and stabilised the backend, then built real-time messaging (text, image and voice), WebRTC audio calling, FCM and PushKit notifications, and an AI image search pipeline: product images are described by an LLM, converted to embeddings and matched with similarity search in PostgreSQL.",
+      techStack: ["Node.js", "PostgreSQL", "RAG", "AI Embeddings", "WebRTC", "Socket.IO", "Firebase FCM", "Apple PushKit"]
     },
     {
-      imgPath: bitsOfCode,
-      title: "Dynamite Digital - Agency Website",
-      description: "A modern, responsive web application for a digital marketing agency. Built with React.js and styled with Tailwind CSS.",
-      ghLink: "https://github.com/shahrob/dynamite-digital",
-      demoLink: "https://dynamitedigital.com",
-      techStack: ["React", "TailwindCSS", "Node.js"],
-      stars: 0,
-      forks: 0,
-      isGitHubProject: false,
-      isBlog: false
+      title: "InvoiceMe - Open Banking Invoicing SaaS",
+      role: "Full Stack Developer / Open Banking & SaaS Engineer",
+      category: "Backend/APIs",
+      description:
+        "Backend services for a web-based invoicing SaaS: invoice creation, email delivery, banking integrations and automated invoicing workflows. Researched and integrated Yapily Open Banking, Sumsub identity verification and scheduled backend jobs.",
+      techStack: ["Node.js", "Express.js", "MongoDB", "Mongoose", "Yapily Open Banking", "Sumsub", "Cron Jobs"],
+      links: [{ label: "Live Site", url: "https://invoiceme.today" }]
     },
     {
-      imgPath: editor,
-      title: "EAnimalHub - Pet Care Platform",
-      description: "A comprehensive pet care platform built with MERN stack. Features include pet profile management, veterinarian appointments, and health tracking.",
-      ghLink: "https://github.com/shahrob/eanimalhub",
-      demoLink: "https://eanimalhub.com",
-      techStack: ["React", "Node.js", "MongoDB", "Express"],
-      stars: 0,
-      forks: 0,
-      isGitHubProject: false,
-      isBlog: false
+      title: "UK Tax SaaS - HMRC, Open Banking & Stripe",
+      role: "Backend Developer",
+      category: "Backend/APIs",
+      description:
+        "Backend services for Making Tax Digital Simple, a UK tax SaaS with Admin, Bookkeeper, Accountant and Client roles. Integrated HMRC for VAT and tax workflows, Yapily Open Banking for consent-based payments, Sumsub verification, Stripe subscriptions, email services and cron jobs.",
+      techStack: ["Node.js", "Express.js", "Mongoose", "HMRC APIs", "Yapily", "Sumsub", "Stripe"],
+      links: [{ label: "Live Site", url: "https://makingtaxdigitalsimple.com" }]
     },
     {
-      imgPath: leaf,
-      title: "Evom - E-commerce Platform",
-      description: "A full-stack e-commerce solution built with Node.js, Express, and React. Features include product catalog and secure payment processing.",
-      ghLink: "https://github.com/shahrob/evom",
-      demoLink: "https://evom-store.com",
-      techStack: ["React", "Node.js", "MongoDB", "Stripe"],
-      stars: 0,
-      forks: 0,
-      isGitHubProject: false,
-      isBlog: false
+      title: "WAZIN - GCC Financial Markets App Backend",
+      role: "Backend Developer",
+      category: "Backend/APIs",
+      description:
+        "Backend services for a GCC financial-market mobile app, integrating S&P Global APIs for companies, listings, tickers, sectors, market indices and market performance. Built secure authentication, real-time communication, push notifications and cloud media storage.",
+      techStack: ["Node.js", "Express.js", "S&P Global APIs", "JWT", "Firebase Cloud Messaging", "Socket.IO", "AWS S3"]
     },
     {
-      imgPath: suicide,
-      title: "Vision - Analytics Dashboard",
-      description: "A comprehensive business analytics dashboard built with React and D3.js. Features real-time data visualization and custom report generation.",
-      ghLink: "https://github.com/shahrob/vision-analytics",
-      demoLink: "https://vision-analytics.com",
-      techStack: ["React", "D3.js", "Node.js", "PostgreSQL"],
-      stars: 0,
-      forks: 0,
-      isGitHubProject: false,
-      isBlog: false
+      title: "Vissioon - Multi-Tenant Coaching SaaS",
+      role: "Backend Developer",
+      category: "Backend/APIs",
+      description:
+        "Backend services for a multi-tenant SaaS for coaches built on microservices: three applications and databases serving Admin, Sub-Admin, Coach, Client and Sub-Client workflows. Implemented Stripe subscriptions, coach website creation, client payment plans, programs, portals, calendar events, email templates and community features.",
+      techStack: ["Node.js", "Express.js", "MongoDB", "React", "Microservices", "Stripe"],
+      links: [{ label: "Live Site", url: "https://vissioon.co" }]
     },
     {
-      imgPath: emotion,
-      title: "WeFix - Service Management App",
-      description: "A service management application for repair and maintenance services. Built with React Native and Node.js.",
-      ghLink: "https://github.com/shahrob/wefix",
-      demoLink: "https://wefix-app.com",
-      techStack: ["React Native", "Node.js", "MongoDB", "Socket.io"],
-      stars: 0,
-      forks: 0,
-      isGitHubProject: false,
-      isBlog: false
+      title: "FrogEater - iOS App Backend & AI Verification",
+      role: "Backend Developer",
+      category: "Backend/APIs",
+      description:
+        "Backend for an iOS app with Apple Sign-In, In-App Purchases and access control. Built AI-powered before/after image verification for task completion, with image URLs that expire after 15 minutes to protect uploads.",
+      techStack: ["Node.js", "Apple Sign-In", "In-App Purchases", "AI Image Analysis"]
+    },
+    {
+      title: "OphthoWorld - Online Exam Platform",
+      role: "Backend Developer",
+      category: "Backend/APIs",
+      description:
+        "Ophthalmology training and assessment platform for residents preparing for OKAP, ABO, Royal College and ICO exams, with 2,500+ board-style questions across 11 subspecialties. Owned the backend from requirements and ERD design through assessment statistics, first-attempt leaderboards, rankings, Moyasar payments, PDF invoices and email workflows.",
+      techStack: ["Node.js", "Express.js", "MongoDB", "JWT", "Joi", "Moyasar"]
+    },
+    {
+      title: "LA Moving Star - Logistics Platform Backend",
+      role: "Backend Developer",
+      category: "Backend/APIs",
+      description:
+        "Backend services for a logistics tracking platform supporting Admin, Company, Client, Foreman, Salesman and Driver workflows. Implemented Google Calendar OAuth so users can connect their calendars and create events from the application.",
+      techStack: ["Node.js", "Express.js", "SQL", "Sequelize", "Google Calendar API", "Google Maps"],
+      links: [{ label: "Live Site", url: "https://client.lamovingstar.com" }]
+    },
+    {
+      title: "DONE - Task Management App",
+      role: "React Native & Backend Developer",
+      category: "Full Stack",
+      description:
+        "Web and mobile task and performance management platform. Contributed to both the React Native app and the backend: UI, state management, API integration, task management and performance tracking across iOS, Android and web.",
+      techStack: ["React Native", "Node.js", "Express.js", "Socket.IO", "REST APIs", "Microservices"],
+      links: [{ label: "Live Site", url: "https://doneworkspace.com" }]
+    },
+    {
+      title: "Khurshid Dairy - Full-Stack E-Commerce Store",
+      role: "Founder & Full-Stack Engineer",
+      category: "Full Stack",
+      description:
+        "My own D2C desi ghee business: a complete live e-commerce platform built with Next.js, backend APIs, Redux state management, MongoDB Atlas and Nodemailer email notifications, with a cost-efficient deployment on Vercel and managed services.",
+      techStack: ["Next.js", "Redux", "MongoDB Atlas", "Nodemailer", "Vercel"],
+      links: [{ label: "Live Site", url: "https://khurshiddairy.online" }]
+    },
+    {
+      title: "CalmVibe - Meditation & Habit Tracker App",
+      role: "React Native Developer",
+      category: "Mobile Apps",
+      description:
+        "Meditation and habit tracker app with meditation tracks, a habit tracker, daily quotes and daily notes. Handled UI development, state management, API integration and cross-platform optimisation for iOS and Android.",
+      techStack: ["React Native", "JavaScript", "iOS", "Android", "In-App Purchases"],
+      links: [
+        { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.calmvibe.app" },
+        { label: "App Store", url: "https://apps.apple.com/us/app/calmvibe-meditation-and-habit/id6450288489" }
+      ]
+    },
+    {
+      title: "SoulCalm - Meditation App for iOS & Android",
+      role: "React Native Developer",
+      category: "Mobile Apps",
+      description:
+        "Meditation app offering a range of meditation tracks with an intuitive interface. Handled UI development, state management, API integration and smooth cross-platform performance on iOS and Android.",
+      techStack: ["React Native", "JavaScript", "iOS", "Android", "In-App Purchases"],
+      links: [
+        { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.coachingoflife.app" },
+        { label: "App Store", url: "https://apps.apple.com/pk/app/soulcalm-relax-meditation/id1643130857" }
+      ]
+    },
+    {
+      title: "Postit - Dental App for iOS & Android",
+      role: "React Native Developer",
+      category: "Mobile Apps",
+      description:
+        "Spanish-language dental app for a Spain-based client with Admin and Client workflows. Built the mobile UI, API integration, state management and cross-platform functionality in React Native.",
+      techStack: ["React Native", "JavaScript", "iOS", "Android"],
+      links: [
+        { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.p.postit" },
+        { label: "App Store", url: "https://apps.apple.com/us/app/post-it/id1628257892" }
+      ]
+    },
+    {
+      title: "The Source Clone - Personal Development App",
+      role: "React Native Developer",
+      category: "Mobile Apps",
+      description:
+        "In-house React Native clone of 'The Source' app, focused on UI development, state management and API integration, optimised for both iOS and Android.",
+      techStack: ["React Native", "JavaScript", "iOS", "Android"]
     }
-  ];
+  ].map((project) => ({
+    ...project,
+    name: project.title,
+    stars: 0,
+    forks: 0,
+    isGitHubProject: false,
+    isBlog: false
+  }));
 
   useEffect(() => {
     fetchGitHubData();
@@ -145,15 +205,15 @@ function Projects() {
           .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
           .slice(0, 12);
 
-        // Combine GitHub projects with fallback projects
-        const combinedProjects = [...processedProjects, ...fallbackProjects];
+        // Featured client work first, public GitHub repositories after
+        const combinedProjects = [...featuredProjects, ...processedProjects];
         setProjects(combinedProjects);
       } else {
-        setProjects(fallbackProjects);
+        setProjects(featuredProjects);
       }
     } catch (err) {
       console.error('GitHub fetch error:', err);
-      setProjects(fallbackProjects);
+      setProjects(featuredProjects);
       setError('Using local project data. GitHub integration temporarily unavailable.');
     } finally {
       setLoading(false);
@@ -189,6 +249,11 @@ function Projects() {
 
     // Sort
     filtered.sort((a, b) => {
+      // Featured client work always stays ahead of GitHub repositories
+      const aFeatured = a.isGitHubProject === false;
+      const bFeatured = b.isGitHubProject === false;
+      if (aFeatured !== bFeatured) return aFeatured ? -1 : 1;
+
       switch (sortBy) {
         case 'stars':
           return (b.stars || 0) - (a.stars || 0);
@@ -264,7 +329,7 @@ function Projects() {
                 My Recent <strong className="purple">Works</strong>
               </h1>
               <p style={{ color: "white", fontSize: "1.1em" }}>
-                Here are some projects I've worked on recently.
+                FinTech, SaaS, marketplace, e-commerce and mobile products I've built, followed by my public GitHub repositories.
               </p>
               
               {error && (
@@ -418,6 +483,8 @@ function Projects() {
                         isGitHubProject={project.isGitHubProject !== false}
                         imgPath={project.imgPath}
                         isBlog={project.isBlog}
+                        role={project.role}
+                        links={project.links}
                       />
                     </motion.div>
                   </Col>

@@ -12,10 +12,14 @@ function AboutCard() {
             <span className="purple">Muhammad Shahrob Abbas </span>
             from <span className="purple"> Sahiwal, Pakistan.</span>
             <br />
-            I am currently employed as a software developer at Meta Logix Tech.
+            I am a Senior Full Stack Developer at Meta Logix Tech with 6+ years
+            of experience building web, mobile, SaaS and AI-powered products.
             <br />
-            I have completed My Bachelor of Studies (BS) in Computer Science at
-            University Of Sahiwal.
+            I hold a Bachelor's degree in Computer Science from the University
+            of Sahiwal (2017 - 2021).
+            <br />
+            I am also the founder of Khurshid Dairy, where I built and run the
+            online store end to end.
             <br />
             <br />
             Apart from coding, some other activities that I love to do!
