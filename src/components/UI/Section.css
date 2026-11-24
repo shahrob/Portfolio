@@ -1,0 +1,47 @@
+.section {
+  padding-top: clamp(96px, 12vw, 144px);
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.section-head .eyebrow {
+  margin-bottom: 18px;
+}
+
+.eyebrow-index {
+  color: var(--accent);
+}
+
+.eyebrow-rule {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--border-strong);
+}
+
+.section-title {
+  max-width: 20ch;
+  font-size: clamp(2.1rem, 4.6vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.section-intro {
+  max-width: 56ch;
+  margin-top: 16px;
+  color: var(--text-muted);
+  font-size: 1.075rem;
+}
+
+.section-action {
+  flex-shrink: 0;
+}

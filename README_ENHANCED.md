@@ -1,106 +1,76 @@
-# Muhammad Shahrob Abbas - Enhanced Portfolio Website
+# Muhammad Shahrob Abbas - Portfolio Website
 
-Welcome to my enhanced portfolio website! This is a comprehensive showcase of my skills, experience, and projects as a **Senior Full Stack Developer** with expertise in building scalable web and mobile applications.
+Personal portfolio of **Muhammad Shahrob Abbas**, Senior Full Stack Developer building web, mobile, SaaS and AI-powered products.
 
 ## 🚀 Live Demo
 Visit my portfolio: [shahrobabbas.com](https://shahrobabbas.com)
 
-## ✨ New Features & Enhancements
+## ✨ Design
 
-### 🎨 **Modern Design & Animations**
-- **Smooth Animations**: Implemented Framer Motion for sophisticated page transitions and interactions
-- **Scroll-triggered Animations**: Elements animate as they come into view
-- **Enhanced Hover Effects**: Interactive elements with smooth hover transitions
-- **Floating Animations**: Subtle floating effects for visual appeal
+The site follows current developer-portfolio conventions: a bento-grid layout, type-led minimalism and restrained motion that puts the work first.
 
-### 📱 **New Portfolio Sections**
+### 🎨 **Look & Feel**
+- **Bento grid**: the hero, about, projects and stack sections are built from modular tiles of different sizes
+- **Typography**: Geist for text, Geist Mono for labels and Instrument Serif italics for accent words
+- **Light & dark themes**: follows the system setting, with a toggle that remembers the visitor's choice
+- **Subtle motion**: scroll reveals, a rotating headline word, a tech-stack marquee and a cursor spotlight on cards, all of which respect `prefers-reduced-motion`
 
-#### 1. **Skills & Expertise** (`/skills`)
-- Comprehensive breakdown of technical skills with proficiency levels
-- Interactive progress bars with color-coded categories
-- Frontend, Backend, Database, and Tools sections
-- Visual skill representation with animated progress indicators
+### 📱 **Page Layout**
+The home page is a single scrolling page with these sections:
 
-#### 2. **Professional Experience** (`/experience`)
-- Interactive timeline showcasing career journey
-- Detailed role descriptions and achievements
-- Technology stack used in each position
-- Key accomplishments and metrics
+1. **Hero**: name, role, availability, CTAs, photo, current role, key numbers, tech marquee and local time
+2. **About**: background, current focus, education, Khurshid Dairy and the GitHub contribution calendar
+3. **Selected work**: six highlighted projects, including the MMAREKANI AI image search pipeline
+4. **Experience**: timeline of roles and education
+5. **Stack**: skills grouped by area, with AI as the current focus
+6. **Services**: the services offered, with a call to action
+7. **Recommendations**: links to the recommendations on LinkedIn and Upwork
+8. **Contact**: contact details and a form that opens the visitor's email app with the message ready
 
-#### 3. **Services Offered** (`/services`)
-- Comprehensive list of development services
-- Detailed feature breakdown for each service
-- Professional service cards with icons and descriptions
-- Clear value propositions for potential clients
+Separate pages:
+- **`/projects`**: all client and product work with category filters and search, plus public GitHub repositories loaded from the GitHub API
+- **`/resume`**: the resume PDF viewer with a download button
 
-#### 4. **Client Testimonials** (`/testimonials`)
-- Links to the recommendations on my LinkedIn profile
-- Links to the verified client testimonials on my Upwork profile
+The older routes (`/about`, `/skills`, `/experience`, `/services`, `/testimonials`, `/stats`, `/contact`) still work and scroll to the matching section.
 
-#### 5. **Contact Form** (`/contact`)
-- Interactive contact form with validation
-- Multiple contact methods (email, phone, location)
-- Social media integration
-- Project type selection and professional inquiry handling
+### ⌨️ **Extras**
+- **Command menu**: press `⌘K` (or `Ctrl K`) to jump to any section, open a profile, copy the email address, switch theme or download the CV
+- **Scroll-spy navigation**: the navbar highlights the section in view
 
-#### 6. **Stats & Achievements** (`/stats`)
-- Key numbers that match my LinkedIn and Upwork profiles
-- Career timeline with milestones
-- Call-to-action for potential collaborations
-
-### 🛠 **Technical Improvements**
-
-#### **Enhanced Performance**
-- Optimized component loading with lazy loading
-- Error boundaries for better error handling
-- Improved image loading with fallbacks
-- Smooth scrolling throughout the site
-
-#### **SEO Optimization**
-- React Helmet for dynamic meta tags
-- Structured data and semantic HTML
-- Social media sharing optimization
-- Improved accessibility compliance
+## 🛠 **Technical Notes**
+- Content lives in one file, `src/data/profile.js`, kept in sync with LinkedIn and Upwork
+- Plain CSS with design tokens (CSS custom properties) for both themes, no UI framework
+- The resume viewer (PDF.js) is code-split, so it only loads on `/resume`
+- React Helmet for page titles and meta tags
+- Error boundary for graceful failures
 
 ## 🔧 **Technology Stack**
-
-### **Frontend**
-- React.js 17.0.2
-- Framer Motion 10.16.5
-- React Bootstrap 2.9.1
-- React Router DOM 6.20.1
-- React Icons 4.12.0
-
-### **Styling & Animation**
-- Bootstrap 5.3.2
-- CSS3 with custom animations
-- Framer Motion animations
-- Responsive design principles
+- React 17
+- React Router 6
+- Framer Motion 6
+- React Icons
+- React PDF (resume viewer)
+- React GitHub Calendar
+- Create React App
 
 ## 📁 **Project Structure**
 
 ```
 src/
 ├── components/
-│   ├── About/              # About section components
-│   ├── Contact/            # Contact form and info
-│   ├── Experience/         # Professional timeline
-│   ├── Home/               # Landing page components
-│   ├── Projects/           # Portfolio projects
-│   ├── Resume/             # Resume display
-│   ├── Services/           # Services offered
-│   ├── Skills/             # Skills and expertise
-│   ├── Stats/              # Achievements and stats
-│   ├── Testimonials/       # Client testimonials
-│   ├── AnimatedSection.js  # Reusable animation wrapper
-│   ├── ErrorBoundary.js    # Error handling
-│   ├── LazyComponent.js    # Performance optimization
-│   ├── Navbar.js           # Navigation
-│   ├── Footer.js           # Footer component
-│   └── Particle.js         # Background particles
-├── Assets/                 # Images and static files
-├── App.js                  # Main application
-├── style.css               # Global styles
+│   ├── Home/               # Home page sections (Hero, About, SelectedWork, ...)
+│   ├── Layout/             # Navbar, Footer, CommandPalette, ScrollManager
+│   ├── Projects/           # Projects page and project cards
+│   ├── Resume/             # Resume page
+│   ├── UI/                 # Card, Section and reveal animation helpers
+│   └── ErrorBoundary.js    # Error handling
+├── data/profile.js         # All site content
+├── hooks/                  # Theme, toast, scroll-spy and local-time hooks
+├── services/               # GitHub API client
+├── utils/                  # Browser helpers (clipboard, shortcuts)
+├── Assets/                 # Images and the resume PDF
+├── App.js                  # Routes and app shell
+├── index.css               # Design tokens and global styles
 └── index.js                # Application entry point
 ```
 
@@ -128,30 +98,15 @@ npm install
 npm start
 ```
 
-4. **Build for production**
+4. **Run tests**
+```bash
+npm test
+```
+
+5. **Build for production**
 ```bash
 npm run build
 ```
-
-## 🎯 **Key Features**
-
-### **Navigation**
-- Responsive navigation with smooth scrolling
-- Mobile-friendly hamburger menu
-- Active section highlighting
-- Quick access to all portfolio sections
-
-### **Performance**
-- Optimized loading with code splitting
-- Lazy loading for better performance
-- Error boundaries for graceful error handling
-- Progressive Web App capabilities
-
-### **User Experience**
-- Smooth animations and transitions
-- Interactive elements with feedback
-- Mobile-responsive design
-- Accessibility compliance
 
 ## 📧 **Contact Information**
 
@@ -178,4 +133,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Built with ❤️ by Muhammad Shahrob Abbas**
 
-*Full Stack Developer | React Specialist | Node.js Expert*
+*Senior Full Stack Developer | AI SaaS, Web & Mobile Apps*
