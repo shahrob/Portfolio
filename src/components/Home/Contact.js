@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { FiArrowUpRight, FiCopy, FiSend } from "react-icons/fi";
 import Card from "../UI/Card";
 import Section from "../UI/Section";
+import { HireCards } from "../UI/Hire";
 import { reveal } from "../UI/reveal";
 import { useLocalTime } from "../../hooks/useLocalTime";
 import { useToast } from "../../hooks/useToast";
 import { copyText } from "../../utils/browser";
-import { profile, projectTypes, socials } from "../../data/profile";
+import { otherSocials, profile, projectTypes } from "../../data/profile";
 import "./Contact.css";
 
 const EMPTY_FORM = { name: "", email: "", projectType: "", message: "" };
@@ -55,13 +56,18 @@ function Contact() {
       id="contact"
       index="07"
       eyebrow="Contact"
+      tone="violet"
+      glow="left"
+      variant="tint"
       title={
         <>
           Let's build something <em>together</em>.
         </>
       }
-      intro="Ready to start your next project? Let's discuss how I can help bring your ideas to life."
+      intro="Want something built? Hire me on Upwork or Fiverr, or message me directly and let's discuss how I can help bring your ideas to life."
     >
+      <HireCards />
+
       <div className="contact-grid">
         <Card className="tile contact-info" {...reveal()}>
           <div className="contact-row">
@@ -100,7 +106,7 @@ function Contact() {
           <div className="contact-row">
             <p className="eyebrow">Elsewhere</p>
             <ul className="social-list">
-              {socials.map(({ id, label, handle, url, icon: Icon }) => (
+              {otherSocials.map(({ id, label, handle, url, icon: Icon }) => (
                 <li key={id}>
                   <a href={url} target="_blank" rel="noopener noreferrer">
                     <Icon className="social-icon" aria-hidden="true" />

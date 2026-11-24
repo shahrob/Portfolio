@@ -1,5 +1,61 @@
 .section {
-  padding-top: clamp(96px, 12vw, 144px);
+  position: relative;
+  isolation: isolate;
+  padding-top: var(--section-space);
+}
+
+/* Soft colour wash behind each section, alternating sides down the page.
+   It spans the section's own width, so it never causes sideways scroll, and
+   it fades out about 100px below the section's top edge, so it never shows
+   a hard line where the previous section ends. */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: min(680px, 100%);
+  background: radial-gradient(
+    600px 340px at var(--glow-x, 12%) 340px,
+    var(--accent-soft),
+    transparent 70%
+  );
+  background: radial-gradient(
+    600px 340px at var(--glow-x, 12%) 340px,
+    color-mix(in srgb, var(--tone, var(--accent)) 18%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.glow-left {
+  --glow-x: 10%;
+}
+
+.glow-right {
+  --glow-x: 90%;
+}
+
+/* Full-width bands: tinted or dark (inverse), with their own spacing. */
+.section--band {
+  margin-top: var(--band-space);
+  padding-block: var(--band-space);
+  border-block: 1px solid var(--border);
+}
+
+.section--band + .section {
+  padding-top: var(--band-space);
+}
+
+.section--tint {
+  background: var(--band-tint);
+}
+
+.section.inverse::before {
+  background: radial-gradient(
+    50% 60% at var(--glow-x, 12%) 120px,
+    color-mix(in srgb, var(--tone, var(--accent)) 22%, transparent),
+    transparent 72%
+  );
 }
 
 .section-head {
@@ -11,19 +67,29 @@
   margin-bottom: clamp(28px, 4vw, 44px);
 }
 
-.section-head .eyebrow {
+/* Coloured label pill, so each section's start stands out. */
+.section-label {
+  display: inline-flex;
   margin-bottom: 18px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-color: color-mix(in srgb, var(--tone, var(--accent)) 28%, transparent);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  background: color-mix(in srgb, var(--tone, var(--accent)) 10%, transparent);
+  color: var(--tone, var(--accent));
 }
 
 .eyebrow-index {
-  color: var(--accent);
+  font-weight: 600;
 }
 
 .eyebrow-rule {
   display: inline-block;
-  width: 24px;
+  width: 18px;
   height: 1px;
-  background: var(--border-strong);
+  background: currentColor;
+  opacity: 0.45;
 }
 
 .section-title {

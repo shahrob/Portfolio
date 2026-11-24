@@ -18,7 +18,7 @@ import {
   FiTool,
   FiUser,
 } from "react-icons/fi";
-import { profile, sections, socials } from "../../data/profile";
+import { hirePlatforms, otherSocials, profile, sections } from "../../data/profile";
 import { useTheme } from "../../hooks/useTheme";
 import { useToast } from "../../hooks/useToast";
 import { copyText } from "../../utils/browser";
@@ -64,6 +64,13 @@ function CommandPalette({ open, onClose }) {
         run: go("/projects"),
       },
       { id: "resume", group: "Pages", label: "Resume", icon: FiFileText, run: go("/resume") },
+      ...hirePlatforms.map((platform) => ({
+        id: `hire-${platform.id}`,
+        group: "Hire me",
+        label: `Hire me on ${platform.name}`,
+        icon: platform.icon,
+        run: openUrl(platform.url),
+      })),
       {
         id: "copy-email",
         group: "Actions",
@@ -89,7 +96,7 @@ function CommandPalette({ open, onClose }) {
         icon: FiDownload,
         run: openUrl(profile.resume),
       },
-      ...socials.map((social) => ({
+      ...otherSocials.map((social) => ({
         id: social.id,
         group: "Elsewhere",
         label: social.label,

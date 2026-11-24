@@ -137,6 +137,10 @@
   gap: var(--gap);
 }
 
+.projects-hire {
+  margin-top: 72px;
+}
+
 .empty-state {
   display: grid;
   justify-items: center;

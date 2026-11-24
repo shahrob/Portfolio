@@ -30,4 +30,5 @@ AI features in production apps: LLM integrations, RAG pipelines, embeddings and 
 Feel free to reach out for collaborations, project discussions, or tech talks!
 - **LinkedIn**: [linkedin.com/in/shahrob-abbas](https://www.linkedin.com/in/shahrob-abbas/)
 - **Upwork**: [upwork.com/freelancers/~01589f1d414475058b](https://www.upwork.com/freelancers/~01589f1d414475058b)
+- **Fiverr**: [fiverr.com/s/1EKlGDz](https://www.fiverr.com/s/1EKlGDz)
 - **YouTube**: [youtube.com/@CodingChallenges-o6u](https://www.youtube.com/@CodingChallenges-o6u)

@@ -11,6 +11,9 @@ function Stack() {
       id="stack"
       index="04"
       eyebrow="Stack"
+      tone="violet"
+      glow="right"
+      variant="tint"
       title={
         <>
           Tools of the <em>trade</em>.
@@ -27,9 +30,9 @@ function Stack() {
           >
             <div className="stack-tile-head">
               <ul className="stack-icons" aria-hidden="true">
-                {group.icons.map((Icon, iconIndex) => (
-                  <li key={iconIndex}>
-                    <Icon />
+                {group.icons.map(({ icon: Icon, color }, iconIndex) => (
+                  <li key={iconIndex} style={color ? { "--brand": color } : undefined}>
+                    <Icon className="brand-icon" />
                   </li>
                 ))}
               </ul>

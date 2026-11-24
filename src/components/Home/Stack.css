@@ -29,6 +29,7 @@
   border: 1px solid var(--border);
   border-radius: 11px;
   background: var(--surface-2);
+  background: color-mix(in srgb, var(--brand, transparent) 12%, var(--surface-2));
   color: var(--text);
   font-size: 18px;
 }
@@ -44,6 +45,19 @@
   background:
     radial-gradient(80% 120% at 100% 0%, var(--accent-soft), transparent 60%),
     var(--surface);
+}
+
+/* Gradient border, as on the featured project card. */
+.stack-tile.is-featured,
+.stack-tile.is-featured:hover {
+  border-color: transparent;
+}
+
+.stack-tile.is-featured {
+  background:
+    radial-gradient(80% 120% at 100% 0%, var(--accent-soft), transparent 60%) padding-box,
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(135deg, var(--violet), var(--pink) 50%, var(--blue)) border-box;
 }
 
 .stack-tile.is-featured .stack-icons li {

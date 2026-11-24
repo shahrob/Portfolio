@@ -14,6 +14,8 @@ function Experience() {
       id="experience"
       index="03"
       eyebrow="Experience"
+      tone="blue"
+      glow="left"
       title={
         <>
           Where I've <em>worked</em>.
@@ -23,7 +25,11 @@ function Experience() {
     >
       <ol className="timeline">
         {experience.map((job, index) => (
-          <motion.li key={job.company} className="timeline-item" {...reveal(index * 0.05)}>
+          <motion.li
+            key={job.company}
+            className={`timeline-item ${job.current ? "is-current" : ""}`}
+            {...reveal(index * 0.05)}
+          >
             <div className="timeline-meta">
               <p className="timeline-period mono">{job.period}</p>
               <p className="timeline-place">

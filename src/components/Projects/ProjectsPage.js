@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiArrowLeft, FiArrowUpRight, FiSearch, FiX } from "react-icons/fi";
 import { ProjectCard, RepoCard, RepoSkeleton } from "./ProjectCard";
+import { HireBand } from "../UI/Hire";
 import { reveal } from "../UI/reveal";
 import { GitHubService } from "../../services/githubService";
 import { profile, projectCategories, projects } from "../../data/profile";
@@ -236,6 +237,13 @@ function ProjectsPage() {
             )}
           </section>
         )}
+
+        <div className="projects-hire">
+          <HireBand
+            title="Want something like this built?"
+            text="Hire me on Upwork or Fiverr, or send me a message to discuss your project."
+          />
+        </div>
       </div>
     </div>
   );

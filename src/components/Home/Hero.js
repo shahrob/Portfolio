@@ -4,13 +4,16 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { FiArrowRight, FiBriefcase, FiClock, FiDownload } from "react-icons/fi";
 import { SiApple, SiGoogleplay } from "react-icons/si";
 import Card from "../UI/Card";
+import { HireButtons } from "../UI/Hire";
 import { EASE, reveal } from "../UI/reveal";
 import { useLocalTime } from "../../hooks/useLocalTime";
 import { marqueeStack, profile, socials, stats } from "../../data/profile";
 import portrait from "../../Assets/shahrob-portrait.jpg";
 import "./Hero.css";
 
-const HERO_SOCIALS = socials.filter((social) => social.id !== "instagram");
+const HERO_SOCIALS = socials.filter((social) =>
+  ["github", "linkedin", "x"].includes(social.id)
+);
 
 function RotatingWord({ words }) {
   const reduceMotion = useReducedMotion();
@@ -57,7 +60,22 @@ function Hero() {
                 <span className="status-dot" aria-hidden="true" />
                 {profile.availability}
               </span>
-              <span className="intro-location mono">{profile.locationShort}</span>
+              <ul className="intro-socials" aria-label="Social profiles">
+                {HERO_SOCIALS.map(({ id, label, url, icon: Icon }) => (
+                  <li key={id}>
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="icon-btn"
+                      aria-label={label}
+                      title={label}
+                    >
+                      <Icon aria-hidden="true" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <div className="intro-body">
@@ -86,22 +104,10 @@ function Hero() {
                   <FiDownload aria-hidden="true" /> Download CV
                 </a>
               </div>
-              <ul className="intro-socials" aria-label="Social profiles">
-                {HERO_SOCIALS.map(({ id, label, url, icon: Icon }) => (
-                  <li key={id}>
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="icon-btn"
-                      aria-label={label}
-                      title={label}
-                    >
-                      <Icon aria-hidden="true" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <div className="intro-hire">
+                <span className="intro-hire-label">Hire me on</span>
+                <HireButtons />
+              </div>
             </div>
           </Card>
 
@@ -129,7 +135,7 @@ function Hero() {
             <p className="tile-note mono">Since {profile.currentRole.since}</p>
           </Card>
 
-          <Card className="tile tile-stat tile-years" {...reveal(0.16)}>
+          <Card className="tile tile-stat tile-years tile--accent" {...reveal(0.16)}>
             <p className="stat-value">{stats.years.value}</p>
             <p className="stat-label">{stats.years.label}</p>
           </Card>
@@ -149,13 +155,17 @@ function Hero() {
             <p className="eyebrow">Stack I ship with</p>
             <div className="marquee">
               <ul className="marquee-track" aria-label="Technologies">
-                {[...marqueeStack, ...marqueeStack].map(({ name, icon: Icon }, i) => (
+                {[...marqueeStack, ...marqueeStack].map(({ name, icon: Icon, color }, i) => (
                   <li
                     key={`${name}-${i}`}
                     className="marquee-item"
                     aria-hidden={i >= marqueeStack.length ? "true" : undefined}
                   >
-                    <Icon aria-hidden="true" />
+                    <Icon
+                      className="brand-icon"
+                      style={color ? { "--brand": color } : undefined}
+                      aria-hidden="true"
+                    />
                     {name}
                   </li>
                 ))}

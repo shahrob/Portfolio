@@ -14,6 +14,9 @@ function SelectedWork() {
       id="work"
       index="02"
       eyebrow="Selected work"
+      tone="pink"
+      glow="right"
+      variant="inverse"
       title={
         <>
           Things I've <em>built</em>.

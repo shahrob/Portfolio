@@ -39,6 +39,8 @@ function About() {
       id="about"
       index="01"
       eyebrow="About"
+      tone="violet"
+      glow="left"
       title={
         <>
           Reliable products, <em>end to end</em>.
@@ -87,7 +89,7 @@ function About() {
           </div>
         </Card>
 
-        <Card className="tile fact-tile about-focus" {...reveal(0.05)}>
+        <Card className="tile fact-tile about-focus tile--accent" {...reveal(0.05)}>
           <p className="eyebrow">
             <FiZap aria-hidden="true" /> Current focus
           </p>
@@ -95,7 +97,7 @@ function About() {
           <p className="fact-text">{about.focus.text}</p>
         </Card>
 
-        <Card className="tile fact-tile about-edu" {...reveal(0.1)}>
+        <Card className="tile fact-tile about-edu hue-blue" {...reveal(0.1)}>
           <p className="eyebrow">
             <FiBookOpen aria-hidden="true" /> Education
           </p>
@@ -110,7 +112,7 @@ function About() {
           href={about.venture.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="tile fact-tile about-venture is-link"
+          className="tile fact-tile about-venture hue-amber is-link"
           {...reveal(0.15)}
         >
           <p className="eyebrow">

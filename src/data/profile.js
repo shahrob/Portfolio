@@ -29,7 +29,7 @@ import {
   SiVisualstudiocode,
 } from "react-icons/si";
 import { DiJava } from "react-icons/di";
-import { TbBrandReactNative } from "react-icons/tb";
+import { TbBrandFiverr, TbBrandReactNative } from "react-icons/tb";
 import {
   FiBell,
   FiCloud,
@@ -46,6 +46,9 @@ import resumePdf from "../Assets/Shahrob_Resume.pdf";
 
 // Single source of truth for the site's content. It mirrors the LinkedIn
 // profile and the Upwork profile, so update those and this file together.
+
+const UPWORK_URL = "https://www.upwork.com/freelancers/~01589f1d414475058b";
+const FIVERR_URL = "https://www.fiverr.com/s/1EKlGDz";
 
 export const profile = {
   name: "Muhammad Shahrob Abbas",
@@ -94,8 +97,15 @@ export const socials = [
     id: "upwork",
     label: "Upwork",
     handle: "Freelance profile",
-    url: "https://www.upwork.com/freelancers/~01589f1d414475058b",
+    url: UPWORK_URL,
     icon: SiUpwork,
+  },
+  {
+    id: "fiverr",
+    label: "Fiverr",
+    handle: "Freelance profile",
+    url: FIVERR_URL,
+    icon: TbBrandFiverr,
   },
   {
     id: "x",
@@ -112,6 +122,36 @@ export const socials = [
     icon: FaInstagram,
   },
 ];
+
+// Freelance platforms where clients can hire me. Shown as "Hire me" links in
+// the hero, the services and projects call-to-action bands, the contact
+// section and the command menu.
+export const hirePlatforms = [
+  {
+    id: "upwork",
+    name: "Upwork",
+    url: UPWORK_URL,
+    icon: SiUpwork,
+    color: "#14a800",
+    description:
+      "Start a contract for full stack, mobile or AI work, with payments handled by Upwork. My profile has 2 verified client testimonials.",
+  },
+  {
+    id: "fiverr",
+    name: "Fiverr",
+    url: FIVERR_URL,
+    icon: TbBrandFiverr,
+    color: "#1dbf73",
+    description:
+      "Order a gig for web, mobile, backend or AI work, with the scope and price agreed up front and payments handled by Fiverr.",
+  },
+];
+
+// Profiles other than the hire platforms, for places that show the hire
+// platforms separately.
+export const otherSocials = socials.filter(
+  (social) => !hirePlatforms.some((platform) => platform.id === social.id)
+);
 
 // Home page sections, in page order. Used by the navbar, the footer and the
 // command menu.
@@ -502,7 +542,7 @@ export const skills = [
     id: "ai",
     title: "AI",
     featured: true,
-    icons: [SiOpenai, FiCpu],
+    icons: [{ icon: SiOpenai }, { icon: FiCpu }],
     items: [
       "OpenAI",
       "LLM Integration",
@@ -518,7 +558,11 @@ export const skills = [
   {
     id: "frontend",
     title: "Frontend",
-    icons: [SiReact, SiNextdotjs, SiTypescript],
+    icons: [
+      { icon: SiReact, color: "#61DAFB" },
+      { icon: SiNextdotjs },
+      { icon: SiTypescript, color: "#3178C6" },
+    ],
     items: [
       "React.js",
       "Next.js",
@@ -532,7 +576,11 @@ export const skills = [
   {
     id: "backend",
     title: "Backend",
-    icons: [SiNodedotjs, SiNestjs, SiExpress],
+    icons: [
+      { icon: SiNodedotjs, color: "#5FA04E" },
+      { icon: SiNestjs, color: "#E0234E" },
+      { icon: SiExpress },
+    ],
     items: [
       "Node.js",
       "NestJS",
@@ -548,7 +596,11 @@ export const skills = [
   {
     id: "mobile",
     title: "Mobile",
-    icons: [TbBrandReactNative, SiAndroid, SiApple],
+    icons: [
+      { icon: TbBrandReactNative, color: "#61DAFB" },
+      { icon: SiAndroid, color: "#34A853" },
+      { icon: SiApple },
+    ],
     items: [
       "React Native",
       "Android (Java)",
@@ -562,13 +614,17 @@ export const skills = [
   {
     id: "databases",
     title: "Databases",
-    icons: [SiPostgresql, SiMongodb, SiRedis],
+    icons: [
+      { icon: SiPostgresql, color: "#4169E1" },
+      { icon: SiMongodb, color: "#47A248" },
+      { icon: SiRedis, color: "#DC382D" },
+    ],
     items: ["PostgreSQL", "MongoDB", "Redis", "SQL", "Mongoose"],
   },
   {
     id: "payments",
     title: "Payments & Integrations",
-    icons: [SiStripe],
+    icons: [{ icon: SiStripe, color: "#635BFF" }],
     items: [
       "Stripe",
       "Open Banking (Yapily)",
@@ -580,13 +636,22 @@ export const skills = [
   {
     id: "devops",
     title: "DevOps",
-    icons: [SiAmazonaws, SiDocker, SiVercel, SiNginx],
+    icons: [
+      { icon: SiAmazonaws, color: "#FF9900" },
+      { icon: SiDocker, color: "#2496ED" },
+      { icon: SiVercel },
+      { icon: SiNginx, color: "#009639" },
+    ],
     items: ["AWS EC2 & S3", "Docker", "Git", "CI/CD", "Vercel", "Linux", "Nginx"],
   },
   {
     id: "tools",
     title: "Tools",
-    icons: [SiVisualstudiocode, SiFigma, SiPostman],
+    icons: [
+      { icon: SiVisualstudiocode, color: "#007ACC" },
+      { icon: SiFigma, color: "#F24E1E" },
+      { icon: SiPostman, color: "#FF6C37" },
+    ],
     items: [
       "macOS",
       "VS Code",
@@ -605,27 +670,27 @@ export const skills = [
 
 // The scrolling tech strip in the hero.
 export const marqueeStack = [
-  { name: "TypeScript", icon: SiTypescript },
-  { name: "React", icon: SiReact },
+  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+  { name: "React", icon: SiReact, color: "#61DAFB" },
   { name: "Next.js", icon: SiNextdotjs },
-  { name: "React Native", icon: TbBrandReactNative },
-  { name: "Node.js", icon: SiNodedotjs },
-  { name: "NestJS", icon: SiNestjs },
+  { name: "React Native", icon: TbBrandReactNative, color: "#61DAFB" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
+  { name: "NestJS", icon: SiNestjs, color: "#E0234E" },
   { name: "Express.js", icon: SiExpress },
-  { name: "PostgreSQL", icon: SiPostgresql },
-  { name: "MongoDB", icon: SiMongodb },
-  { name: "Redis", icon: SiRedis },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+  { name: "Redis", icon: SiRedis, color: "#DC382D" },
   { name: "OpenAI / LLMs", icon: SiOpenai },
-  { name: "Stripe", icon: SiStripe },
-  { name: "AWS", icon: SiAmazonaws },
-  { name: "Docker", icon: SiDocker },
-  { name: "Firebase", icon: SiFirebase },
-  { name: "Redux", icon: SiRedux },
-  { name: "JavaScript", icon: SiJavascript },
-  { name: "MySQL", icon: SiMysql },
-  { name: "Git", icon: SiGit },
-  { name: "Java", icon: DiJava },
-  { name: "C++", icon: SiCplusplus },
+  { name: "Stripe", icon: SiStripe, color: "#635BFF" },
+  { name: "AWS", icon: SiAmazonaws, color: "#FF9900" },
+  { name: "Docker", icon: SiDocker, color: "#2496ED" },
+  { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+  { name: "Redux", icon: SiRedux, color: "#764ABC" },
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+  { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+  { name: "Git", icon: SiGit, color: "#F05032" },
+  { name: "Java", icon: DiJava, color: "#ED8B00" },
+  { name: "C++", icon: SiCplusplus, color: "#00599C" },
 ];
 
 // Mirrors the "Core Services" list on Upwork.
@@ -633,6 +698,7 @@ export const services = [
   {
     icon: FiLayers,
     title: "Full Stack & SaaS Development",
+    hue: "violet",
     description:
       "Web apps, SaaS platforms, dashboards and portals with React.js, Next.js, Node.js, NestJS and TypeScript.",
     features: [
@@ -647,6 +713,7 @@ export const services = [
   {
     icon: FiSmartphone,
     title: "Mobile App Development",
+    hue: "blue",
     description:
       "iOS and Android apps with React Native: authentication, API integration, push notifications, WebRTC calling and maintainable architecture.",
     features: [
@@ -661,6 +728,7 @@ export const services = [
   {
     icon: FiCpu,
     title: "AI Applications & Automation",
+    hue: "pink",
     description:
       "AI agents, LLM integrations, RAG pipelines, embeddings, vector search and automated workflows.",
     features: [
@@ -675,6 +743,7 @@ export const services = [
   {
     icon: FiServer,
     title: "Backend & API Engineering",
+    hue: "emerald",
     description:
       "Secure REST APIs, auth, RBAC, microservices and scalable architecture with Node.js, NestJS and Express.js.",
     features: [
@@ -689,6 +758,7 @@ export const services = [
   {
     icon: FiDatabase,
     title: "Database Design & Performance",
+    hue: "amber",
     description:
       "PostgreSQL (pgvector), MongoDB, Redis, data modeling, query optimization, caching and background jobs.",
     features: [
@@ -703,6 +773,7 @@ export const services = [
   {
     icon: FiCloud,
     title: "Deployment & DevOps",
+    hue: "cyan",
     description:
       "AWS (EC2, S3), Docker, CI/CD, Nginx, Linux, Git workflows and production deployment.",
     features: [
@@ -722,6 +793,7 @@ export const recommendations = [
   {
     id: "linkedin",
     icon: FaLinkedinIn,
+    color: "#0A66C2",
     count: 3,
     title: "LinkedIn recommendations",
     summary:
@@ -733,11 +805,12 @@ export const recommendations = [
     id: "upwork",
     icon: SiUpwork,
     count: 2,
+    color: "#14A800",
     title: "Upwork testimonials",
     summary:
       "2 verified testimonials on my Upwork profile for full stack web and mobile work.",
     linkLabel: "Read on Upwork",
-    url: "https://www.upwork.com/freelancers/~01589f1d414475058b",
+    url: UPWORK_URL,
   },
 ];
 

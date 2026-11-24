@@ -1,7 +1,8 @@
 /* ==========================================================================
    Design tokens
    Light values live on :root; dark values override them via data-theme,
-   which public/index.html sets before the app renders.
+   which public/index.html sets before the app renders. `.inverse` applies
+   the dark values to one element (showcase bands, the footer) in any theme.
    ========================================================================== */
 
 :root {
@@ -16,32 +17,47 @@
   --radius-lg: 22px;
   --radius-md: 14px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --section-space: clamp(96px, 12vw, 144px);
+  --band-space: clamp(80px, 10vw, 120px);
+
+  /* Gradient used by the filled accent tiles (same in both themes). */
+  --gradient-accent: linear-gradient(135deg, #5b21b6 0%, #7e22ce 50%, #be185d 100%);
 
   color-scheme: light;
-  --bg: #fafafa;
+  --bg: #f3f2f8;
+  --band-tint: #eae7f3;
   --surface: #ffffff;
-  --surface-2: #f4f4f5;
-  --surface-3: #e9e9ec;
-  --border: rgba(9, 9, 11, 0.08);
-  --border-strong: rgba(9, 9, 11, 0.16);
-  --text: #18181b;
-  --text-muted: #52525b;
-  --text-subtle: #6b6b75;
+  --surface-2: #f5f4f9;
+  --surface-3: #e9e7f0;
+  --border: rgba(24, 20, 40, 0.09);
+  --border-strong: rgba(24, 20, 40, 0.17);
+  --text: #17151f;
+  --text-muted: #4f4b5c;
+  --text-subtle: #6a6678;
   --accent: #9333ea;
-  --accent-soft: rgba(147, 51, 234, 0.08);
-  --accent-glow: rgba(147, 51, 234, 0.16);
+  --accent-soft: rgba(147, 51, 234, 0.09);
+  --accent-glow: rgba(147, 51, 234, 0.2);
   --on-accent: #ffffff;
+  --violet: #6d28d9;
+  --pink: #be185d;
+  --blue: #1d4ed8;
+  --emerald: #047857;
+  --amber: #b45309;
+  --cyan: #0e7490;
   --success: #16a34a;
   --success-ring: rgba(22, 163, 74, 0.35);
-  --grid-line: rgba(9, 9, 11, 0.045);
-  --nav-bg: rgba(250, 250, 250, 0.78);
+  --grid-line: rgba(24, 20, 40, 0.06);
+  --nav-bg: rgba(255, 255, 255, 0.78);
   --overlay: rgba(9, 9, 11, 0.32);
-  --shadow-lg: 0 24px 64px -24px rgba(9, 9, 11, 0.25), 0 2px 6px rgba(9, 9, 11, 0.05);
+  --shadow-card: 0 1px 2px rgba(24, 20, 40, 0.05), 0 12px 32px -20px rgba(24, 20, 40, 0.28);
+  --shadow-lg: 0 24px 64px -24px rgba(24, 20, 40, 0.28), 0 2px 6px rgba(24, 20, 40, 0.06);
 }
 
-:root[data-theme="dark"] {
+:root[data-theme="dark"],
+.inverse {
   color-scheme: dark;
   --bg: #09090b;
+  --band-tint: #0e0d13;
   --surface: #111113;
   --surface-2: #18181b;
   --surface-3: #232328;
@@ -54,12 +70,63 @@
   --accent-soft: rgba(199, 112, 240, 0.1);
   --accent-glow: rgba(199, 112, 240, 0.2);
   --on-accent: #14061c;
+  --violet: #a78bfa;
+  --pink: #f472b6;
+  --blue: #60a5fa;
+  --emerald: #34d399;
+  --amber: #fbbf24;
+  --cyan: #22d3ee;
   --success: #22c55e;
   --success-ring: rgba(34, 197, 94, 0.4);
   --grid-line: rgba(255, 255, 255, 0.04);
   --nav-bg: rgba(9, 9, 11, 0.72);
   --overlay: rgba(0, 0, 0, 0.6);
+  --shadow-card: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   --shadow-lg: 0 24px 64px -24px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Inverse bands sit on a purple-tinted black, a step above the dark page. */
+.inverse {
+  --bg: #0c0a12;
+  --surface: #15131c;
+  --surface-2: #1c1a24;
+  --surface-3: #27242f;
+  background: var(--bg);
+  color: var(--text);
+}
+
+:root[data-theme="dark"] .inverse {
+  --bg: #100e17;
+  --surface: #17151f;
+  --surface-2: #1e1c27;
+}
+
+/* Hues for section accents, service icons and fact tiles. */
+.tone-violet,
+.hue-violet {
+  --tone: var(--violet);
+}
+
+.tone-pink,
+.hue-pink {
+  --tone: var(--pink);
+}
+
+.tone-blue,
+.hue-blue {
+  --tone: var(--blue);
+}
+
+.hue-emerald {
+  --tone: var(--emerald);
+}
+
+.hue-amber {
+  --tone: var(--amber);
+}
+
+.hue-cyan {
+  --tone: var(--cyan);
 }
 
 @media (max-width: 639px) {
@@ -220,14 +287,33 @@ kbd {
   text-transform: uppercase;
 }
 
-/* Serif italic accent words inside display headings. */
+/* Serif italic accent words inside display headings, filled with the
+   section's tone fading into the brand accent. */
 .section-title em,
 .page-title em {
+  padding-right: 0.06em;
+  background: linear-gradient(100deg, var(--tone, var(--accent)) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--accent);
+  -webkit-text-fill-color: transparent;
   font-family: var(--font-serif);
   font-size: 1.06em;
   font-style: italic;
   font-weight: 400;
   letter-spacing: -0.01em;
+}
+
+/* Logos in their brand colour, darkened on light backgrounds and lightened
+   on dark ones so they stay legible. Logos without a --brand value (black or
+   white marks) inherit the text colour. */
+.brand-icon {
+  color: color-mix(in srgb, var(--brand) 72%, #000);
+}
+
+:root[data-theme="dark"] .brand-icon,
+.inverse .brand-icon {
+  color: color-mix(in srgb, var(--brand) 85%, #fff);
 }
 
 /* ==========================================================================
@@ -371,7 +457,28 @@ kbd {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background: var(--surface);
-  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
+}
+
+/* Filled gradient tile for the few things that deserve emphasis. It
+   re-maps the colour tokens so everything inside turns light. */
+.tile--accent {
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.88);
+  --text-subtle: rgba(255, 255, 255, 0.78);
+  --border: rgba(255, 255, 255, 0.2);
+  --border-strong: rgba(255, 255, 255, 0.34);
+  --surface-2: rgba(255, 255, 255, 0.14);
+  --accent: #ffffff;
+  --accent-soft: rgba(255, 255, 255, 0.16);
+  --on-accent: #5b21b6;
+  --tone: #ffffff;
+  border-color: transparent;
+  background: var(--gradient-accent);
+  color: var(--text);
+  box-shadow: 0 20px 44px -22px rgba(126, 34, 206, 0.65);
 }
 
 /* Cursor spotlight; Card.js feeds --mx / --my. */
@@ -395,6 +502,10 @@ kbd {
     border-color: var(--border-strong);
   }
 
+  .tile--accent:hover {
+    border-color: transparent;
+  }
+
   .card:hover::before {
     opacity: 1;
   }
@@ -409,7 +520,9 @@ kbd {
    ========================================================================== */
 
 .page {
+  --tone: var(--violet);
   padding-top: 120px;
+  padding-bottom: var(--section-space);
 }
 
 .page-head {

@@ -122,6 +122,20 @@
     var(--surface);
 }
 
+/* Gradient border: the fill is clipped to the padding box and the gradient
+   shows through the transparent border. */
+.project-card--feature,
+.project-card--feature:hover {
+  border-color: transparent;
+}
+
+.project-card--feature {
+  background:
+    radial-gradient(90% 70% at 100% 0%, var(--accent-soft), transparent 65%) padding-box,
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(135deg, var(--violet), var(--pink) 50%, var(--blue)) border-box;
+}
+
 .project-card--feature .project-name {
   font-size: clamp(2rem, 4vw, 2.75rem);
   letter-spacing: -0.045em;

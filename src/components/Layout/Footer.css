@@ -1,7 +1,6 @@
 .footer {
   position: relative;
-  margin-top: clamp(96px, 12vw, 144px);
-  padding-top: 56px;
+  padding-top: 64px;
   overflow: hidden;
   border-top: 1px solid var(--border);
 }

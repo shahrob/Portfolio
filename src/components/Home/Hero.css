@@ -15,6 +15,13 @@
     radial-gradient(36% 40% at 8% 10%, var(--accent-soft), transparent 70%),
     linear-gradient(to right, var(--grid-line) 1px, transparent 1px) 0 0 / 64px 64px,
     linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px) 0 0 / 64px 64px;
+  /* Violet, pink and blue aurora where color-mix is supported. */
+  background:
+    radial-gradient(46% 54% at 74% 0%, color-mix(in srgb, var(--violet) 30%, transparent), transparent 70%),
+    radial-gradient(30% 42% at 98% 28%, color-mix(in srgb, var(--pink) 20%, transparent), transparent 70%),
+    radial-gradient(38% 46% at 4% 6%, color-mix(in srgb, var(--blue) 18%, transparent), transparent 70%),
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px) 0 0 / 64px 64px,
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px) 0 0 / 64px 64px;
   -webkit-mask-image: linear-gradient(to bottom, #000 35%, transparent);
   mask-image: linear-gradient(to bottom, #000 35%, transparent);
 }
@@ -54,6 +61,7 @@
 
 .intro-top {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -88,13 +96,6 @@
   100% {
     box-shadow: 0 0 0 8px transparent;
   }
-}
-
-.intro-location {
-  color: var(--text-subtle);
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .hero-title {
@@ -154,6 +155,18 @@
 .intro-socials {
   display: flex;
   gap: 8px;
+}
+
+.intro-hire {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.intro-hire-label {
+  color: var(--text-muted);
+  font-size: 14px;
 }
 
 /* Photo ------------------------------------------------------------------ */
@@ -322,7 +335,6 @@
 .marquee-item svg {
   width: 16px;
   height: 16px;
-  color: var(--text);
 }
 
 @keyframes marquee {

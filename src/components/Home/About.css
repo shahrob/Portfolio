@@ -113,10 +113,8 @@
   transform: translate(2px, -2px);
 }
 
-.about-focus {
-  background:
-    radial-gradient(120% 120% at 100% 0%, var(--accent-soft), transparent 60%),
-    var(--surface);
+.fact-tile .eyebrow svg {
+  color: var(--tone, var(--text-subtle));
 }
 
 .github-head {

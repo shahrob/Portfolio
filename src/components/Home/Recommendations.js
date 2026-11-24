@@ -12,6 +12,8 @@ function Recommendations() {
       id="recommendations"
       index="06"
       eyebrow="Recommendations"
+      tone="blue"
+      glow="right"
       title={
         <>
           Kind <em>words</em>.
@@ -30,11 +32,12 @@ function Recommendations() {
               target="_blank"
               rel="noopener noreferrer"
               className="tile reco-card is-link"
+              style={{ "--brand": item.color }}
               {...reveal(index * 0.06)}
             >
               <div className="reco-head">
                 <span className="reco-icon">
-                  <Icon aria-hidden="true" />
+                  <Icon className="brand-icon" aria-hidden="true" />
                 </span>
                 <span className="reco-count">{item.count}</span>
               </div>
