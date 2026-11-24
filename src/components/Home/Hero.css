@@ -1,0 +1,426 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  padding-top: 104px;
+}
+
+.hero-backdrop {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: 760px;
+  pointer-events: none;
+  background:
+    radial-gradient(48% 56% at 72% 0%, var(--accent-glow), transparent 70%),
+    radial-gradient(36% 40% at 8% 10%, var(--accent-soft), transparent 70%),
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px) 0 0 / 64px 64px,
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px) 0 0 / 64px 64px;
+  /* Violet, pink and blue aurora where color-mix is supported. */
+  background:
+    radial-gradient(46% 54% at 74% 0%, color-mix(in srgb, var(--violet) 30%, transparent), transparent 70%),
+    radial-gradient(30% 42% at 98% 28%, color-mix(in srgb, var(--pink) 20%, transparent), transparent 70%),
+    radial-gradient(38% 46% at 4% 6%, color-mix(in srgb, var(--blue) 18%, transparent), transparent 70%),
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px) 0 0 / 64px 64px,
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px) 0 0 / 64px 64px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 35%, transparent);
+  mask-image: linear-gradient(to bottom, #000 35%, transparent);
+}
+
+.hero-bento {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    "intro intro intro photo"
+    "intro intro intro photo"
+    "now   now   years apps"
+    "stack stack stack time";
+  gap: var(--gap);
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.tile-note {
+  margin-top: auto;
+  color: var(--text-subtle);
+  font-size: 13px;
+}
+
+/* Intro ------------------------------------------------------------------ */
+
+.tile-intro {
+  grid-area: intro;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 460px;
+  padding: clamp(24px, 3.4vw, 36px);
+}
+
+.intro-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 13px 6px 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: status-pulse 2.4s ease-out infinite;
+}
+
+@keyframes status-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--success-ring);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+
+.hero-title {
+  font-size: clamp(2.7rem, 6.4vw, 4.9rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.hero-lead {
+  max-width: 40ch;
+  margin-top: 22px;
+  color: var(--text-muted);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.55;
+}
+
+.rotator {
+  display: block;
+  margin: 4px 0 6px;
+}
+
+.rotator-window {
+  position: relative;
+  display: block;
+  height: 1.18em;
+  overflow: hidden;
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.8vw, 2.9rem);
+  font-style: italic;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+
+.rotator-word {
+  position: absolute;
+  inset: 0 auto auto 0;
+  white-space: nowrap;
+}
+
+.intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.intro-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.intro-socials {
+  display: flex;
+  gap: 8px;
+}
+
+.intro-hire {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.intro-hire-label {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Photo ------------------------------------------------------------------ */
+
+.tile-photo {
+  grid-area: photo;
+  min-height: 320px;
+  padding: 0;
+}
+
+.tile-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  transition: transform 0.8s var(--ease);
+}
+
+@media (hover: hover) {
+  .tile-photo:hover img {
+    transform: scale(1.03);
+  }
+}
+
+.photo-caption {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 48px 20px 18px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72), transparent);
+  color: #fff;
+}
+
+.photo-name {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.photo-meta {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Small tiles -------------------------------------------------------------- */
+
+.tile-now {
+  grid-area: now;
+  gap: 14px;
+}
+
+.now-role {
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.now-role span {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.tile-years {
+  grid-area: years;
+}
+
+.tile-apps {
+  grid-area: apps;
+}
+
+.tile-stat {
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 176px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.stat-value {
+  font-size: clamp(2.8rem, 4.6vw, 3.6rem);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.stat-label {
+  max-width: 24ch;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.store-icons {
+  display: flex;
+  gap: 8px;
+  color: var(--text-subtle);
+  font-size: 18px;
+}
+
+.tile-time {
+  grid-area: time;
+  gap: 10px;
+}
+
+.time-value {
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+/* Marquee ------------------------------------------------------------------ */
+
+.tile-stack {
+  grid-area: stack;
+  justify-content: space-between;
+  gap: 22px;
+  overflow: hidden;
+}
+
+.marquee {
+  margin: 0 -24px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  padding: 2px 24px;
+  animation: marquee 48s linear infinite;
+}
+
+@media (hover: hover) {
+  .tile-stack:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.marquee-item svg {
+  width: 16px;
+  height: 16px;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(calc(-50% - 5px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .marquee-track {
+    flex-wrap: wrap;
+    width: auto;
+    animation: none;
+  }
+
+  .marquee-item[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+/* Responsive ---------------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  .hero-bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "intro intro"
+      "photo now"
+      "photo time"
+      "years apps"
+      "stack stack";
+  }
+
+  .tile-intro {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 639px) {
+  .hero {
+    padding-top: 92px;
+  }
+
+  .hero-bento {
+    grid-template-areas:
+      "intro intro"
+      "photo photo"
+      "now   now"
+      "years apps"
+      "time  time"
+      "stack stack";
+  }
+
+  .tile {
+    padding: 20px;
+  }
+
+  .tile-photo {
+    min-height: 0;
+    padding: 0;
+    aspect-ratio: 4 / 4.4;
+  }
+
+  .tile-stat {
+    min-height: 0;
+  }
+
+  .marquee {
+    margin: 0 -20px;
+  }
+
+  .marquee-track {
+    padding: 2px 20px;
+  }
+
+  .intro-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .intro-buttons .btn {
+    flex: 1 1 auto;
+  }
+}

@@ -91,13 +91,7 @@ export class GitHubService {
       repo.description
     );
 
-    // Determine if repo has a live demo
-    const hasDemo = repo.homepage || 
-                   repo.description?.includes('demo') || 
-                   repo.description?.includes('live') ||
-                   repo.has_pages;
-
-    // Generate demo URL
+    // Live demo: the repo homepage, or its GitHub Pages site
     const demoUrl = repo.homepage || 
                    (repo.has_pages ? `https://${GITHUB_USERNAME}.github.io/${repo.name}` : null);
 
@@ -130,50 +124,5 @@ export class GitHubService {
       .split(/[-_]/)
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
-  }
-
-  static categorizeProjects(projects) {
-    const categories = {
-      'Web Applications': [],
-      'Mobile Apps': [],
-      'Backend/APIs': [],
-      'Full Stack': [],
-      'Tools & Utilities': [],
-      'Featured': [],
-      'Other': []
-    };
-
-    projects.forEach(project => {
-      const { techStack, description, name, stars, forks } = project;
-      const content = `${name} ${description}`.toLowerCase();
-      
-      // Featured projects (high engagement)
-      if (stars > 3 || forks > 1 || project.hasDemo) {
-        categories['Featured'].push(project);
-      }
-      
-      if (techStack?.includes('React Native') || content.includes('mobile') || content.includes('app')) {
-        categories['Mobile Apps'].push(project);
-      } else if (techStack?.includes('React') && (techStack?.includes('Node.js') || techStack?.includes('MongoDB'))) {
-        categories['Full Stack'].push(project);
-      } else if (techStack?.includes('React') || techStack?.includes('Vue.js') || techStack?.includes('Angular')) {
-        categories['Web Applications'].push(project);
-      } else if (techStack?.includes('Node.js') || techStack?.includes('API') || content.includes('api')) {
-        categories['Backend/APIs'].push(project);
-      } else if (content.includes('tool') || content.includes('utility') || content.includes('cli')) {
-        categories['Tools & Utilities'].push(project);
-      } else {
-        categories['Other'].push(project);
-      }
-    });
-
-    // Remove empty categories
-    Object.keys(categories).forEach(key => {
-      if (categories[key].length === 0) {
-        delete categories[key];
-      }
-    });
-
-    return categories;
   }
 }

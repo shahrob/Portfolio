@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -6,39 +6,29 @@ class ErrorBoundary extends React.Component {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error('Error caught by boundary:', error, errorInfo);
+    console.error("Error caught by boundary:", error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ 
-          textAlign: 'center', 
-          padding: '50px', 
-          color: 'white',
-          backgroundColor: '#1a1a2e'
-        }}>
-          <h2>Oops! Something went wrong.</h2>
-          <p>We're sorry for the inconvenience. Please refresh the page or try again later.</p>
-          <button 
-            onClick={() => window.location.reload()}
-            style={{
-              background: '#c770f0',
-              color: 'white',
-              border: 'none',
-              padding: '10px 20px',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              fontSize: '16px'
-            }}
-          >
-            Refresh Page
-          </button>
+        <div className="error-screen">
+          <div>
+            <h1>Something went wrong.</h1>
+            <p>Please refresh the page or try again later.</p>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => window.location.reload()}
+            >
+              Refresh page
+            </button>
+          </div>
         </div>
       );
     }

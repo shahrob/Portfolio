@@ -1,0 +1,57 @@
+.resume-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.resume-doc {
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.resume-doc .react-pdf__Document {
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.resume-sheet {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+}
+
+.resume-sheet canvas {
+  display: block;
+  max-width: 100%;
+  height: auto !important;
+}
+
+.resume-placeholder {
+  width: 100%;
+  padding: 120px 16px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.resume-placeholder a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
