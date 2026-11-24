@@ -21,6 +21,7 @@ test("renders the home page with its main sections", () => {
     screen.getByRole("heading", { level: 1, name: "Muhammad Shahrob Abbas" })
   ).toBeInTheDocument();
   expect(screen.getByRole("heading", { name: /things i've built/i })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: /ai agents that do real work/i })).toBeInTheDocument();
   expect(screen.getByRole("heading", { name: /where i've worked/i })).toBeInTheDocument();
   expect(screen.getByRole("link", { name: /all 14 projects/i })).toHaveAttribute(
     "href",

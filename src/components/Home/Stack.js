@@ -9,7 +9,7 @@ function Stack() {
   return (
     <Section
       id="stack"
-      index="04"
+      index="05"
       eyebrow="Stack"
       tone="violet"
       glow="right"

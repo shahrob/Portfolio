@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./Hero";
 import About from "./About";
 import SelectedWork from "./SelectedWork";
+import AISection from "./AISection";
 import Experience from "./Experience";
 import Stack from "./Stack";
 import Services from "./Services";
@@ -14,6 +15,7 @@ function Home() {
       <Hero />
       <About />
       <SelectedWork />
+      <AISection />
       <Experience />
       <Stack />
       <Services />

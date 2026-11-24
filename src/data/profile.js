@@ -158,6 +158,7 @@ export const otherSocials = socials.filter(
 export const sections = [
   { id: "about", label: "About" },
   { id: "work", label: "Work" },
+  { id: "ai", label: "AI" },
   { id: "experience", label: "Experience" },
   { id: "stack", label: "Stack" },
   { id: "services", label: "Services" },
@@ -546,7 +547,11 @@ export const skills = [
     items: [
       "OpenAI",
       "LLM Integration",
+      "LangChain",
+      "LangGraph",
       "RAG",
+      "Tool Calling",
+      "MCP",
       "AI Agents",
       "Chatbots",
       "Embeddings",

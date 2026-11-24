@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   FiBriefcase,
   FiCopy,
+  FiCpu,
   FiCornerDownLeft,
   FiDownload,
   FiFileText,
@@ -28,6 +29,7 @@ import "./CommandPalette.css";
 const SECTION_ICONS = {
   about: FiUser,
   work: FiGrid,
+  ai: FiCpu,
   experience: FiBriefcase,
   stack: FiTool,
   services: FiLayers,

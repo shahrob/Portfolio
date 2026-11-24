@@ -21,11 +21,12 @@ The home page is a single scrolling page with these sections:
 1. **Hero**: name, role, availability, CTAs, "Hire me on Upwork / Fiverr" links, photo, current role, key numbers, tech marquee and local time
 2. **About**: background, current focus, education, Khurshid Dairy and the GitHub contribution calendar
 3. **Selected work**: six highlighted projects, including the MMAREKANI AI image search pipeline
-4. **Experience**: timeline of roles and education
-5. **Stack**: skills grouped by area, with AI as the current focus
-6. **Services**: the services offered, with a "Want something built?" band linking to Upwork and Fiverr
-7. **Recommendations**: links to the recommendations on LinkedIn and Upwork
-8. **Contact**: "Hire me on Upwork" and "Hire me on Fiverr" cards, contact details and a form that opens the visitor's email app with the message ready
+4. **AI engineering**: an animated diagram of how an AI agent answers a question (LangGraph agent, RAG with pgvector, tool calling, MCP servers, LLM), with a live trace log and a pause button, plus animated cards for LangGraph, MCP, RAG, tool calling, LangChain, agents, multimodal AI and prompt engineering
+5. **Experience**: timeline of roles and education
+6. **Stack**: skills grouped by area, with AI as the current focus
+7. **Services**: the services offered, with a "Want something built?" band linking to Upwork and Fiverr
+8. **Recommendations**: links to the recommendations on LinkedIn and Upwork
+9. **Contact**: "Hire me on Upwork" and "Hire me on Fiverr" cards, contact details and a form that opens the visitor's email app with the message ready
 
 Separate pages:
 - **`/projects`**: all client and product work with category filters and search, plus public GitHub repositories loaded from the GitHub API, ending with the Upwork / Fiverr hire band

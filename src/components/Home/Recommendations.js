@@ -10,7 +10,7 @@ function Recommendations() {
   return (
     <Section
       id="recommendations"
-      index="06"
+      index="07"
       eyebrow="Recommendations"
       tone="blue"
       glow="right"

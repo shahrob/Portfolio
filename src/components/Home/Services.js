@@ -11,7 +11,7 @@ function Services() {
   return (
     <Section
       id="services"
-      index="05"
+      index="06"
       eyebrow="Services"
       tone="pink"
       glow="left"

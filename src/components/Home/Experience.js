@@ -12,7 +12,7 @@ function Experience() {
   return (
     <Section
       id="experience"
-      index="03"
+      index="04"
       eyebrow="Experience"
       tone="blue"
       glow="left"

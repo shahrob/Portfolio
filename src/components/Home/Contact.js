@@ -54,7 +54,7 @@ function Contact() {
   return (
     <Section
       id="contact"
-      index="07"
+      index="08"
       eyebrow="Contact"
       tone="violet"
       glow="left"
